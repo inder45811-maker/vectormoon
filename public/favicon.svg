@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C6FF"/>
+      <stop offset="100%" stop-color="#3D5AFE"/>
+    </linearGradient>
+  </defs>
+  <!-- Browser window frame -->
+  <rect x="4" y="8" width="56" height="48" rx="6" stroke="#8892B0" stroke-width="2" fill="#0B1020"/>
+  <line x1="4" y1="18" x2="60" y2="18" stroke="#8892B0" stroke-width="1.5"/>
+  <circle cx="13" cy="13" r="2" fill="#FF5F56"/>
+  <circle cx="21" cy="13" r="2" fill="#FFBD2E"/>
+  <circle cx="29" cy="13" r="2" fill="#27C93F"/>
+  <!-- Moon -->
+  <circle cx="32" cy="36" r="12" fill="url(#moonGrad)"/>
+  <!-- Vector nodes -->
+  <circle cx="22" cy="28" r="2" fill="#7B61FF" stroke="#fff" stroke-width="0.5"/>
+  <circle cx="42" cy="28" r="2" fill="#7B61FF" stroke="#fff" stroke-width="0.5"/>
+  <circle cx="32" cy="50" r="2" fill="#7B61FF" stroke="#fff" stroke-width="0.5"/>
+  <!-- Node connections -->
+  <line x1="22" y1="28" x2="32" y2="36" stroke="#7B61FF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="42" y1="28" x2="32" y2="36" stroke="#7B61FF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="32" y1="50" x2="32" y2="36" stroke="#7B61FF" stroke-width="0.8" opacity="0.6"/>
+  <!-- Code brackets -->
+  <text x="8" y="40" font-family="monospace" font-size="10" fill="#00C6FF" opacity="0.7">&lt;/&gt;</text>
+  <text x="44" y="40" font-family="monospace" font-size="10" fill="#00C6FF" opacity="0.7">&lt;/&gt;</text>
+</svg>

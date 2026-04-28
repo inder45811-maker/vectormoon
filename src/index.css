@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* ============================================
+   VectorMoon Design System — Celestial Editorial
+   ============================================ */
+
+@theme {
+  /* Brand Colors */
+  --color-void: #0B1020;
+  --color-deep-navy: #132A5E;
+  --color-nebula: #161b2b;
+  --color-satellite: #1a1f30;
+  --color-cosmos: #25293a;
+  --color-star-dust: #2f3446;
+  
+  /* Accent Colors */
+  --color-cyan: #00C6FF;
+  --color-cyan-light: #96dcff;
+  --color-electric: #3D5AFE;
+  --color-purple: #7B61FF;
+  --color-purple-light: #cea6ff;
+  
+  /* Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8892B0;
+  --color-text-muted: #bcc8d0;
+  
+  /* Semantic */
+  --color-outline: #3d484f;
+  
+  /* Font */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  
+  /* Shadows */
+  --shadow-glow-cyan: 0 0 15px rgba(0, 198, 255, 0.3);
+  --shadow-glow-cyan-lg: 0 0 30px rgba(0, 198, 255, 0.2);
+  --shadow-ambient: 0 12px 48px rgba(222, 225, 249, 0.06);
+  --shadow-card-hover: 0 16px 64px rgba(0, 198, 255, 0.1);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 198, 255, 0.3);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-star-dust);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* Utility — Ghost Border */
+.ghost-border {
+  border: 1px solid rgba(61, 72, 79, 0.15);
+}
+
+/* Utility — Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #00C6FF, #3D5AFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #00C6FF, #7B61FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Utility — Section padding */
+.section-pad {
+  padding: 6rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 8rem 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding: 10rem 4rem;
+  }
+}
+
+/* Cosmic Orb */
+.cosmic-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(26, 31, 48, 0.6);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+}
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-cyan);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
