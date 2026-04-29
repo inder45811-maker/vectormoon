@@ -6,7 +6,8 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
-const CONTACT_EMAIL = 'hello@vectormoon.com'
+const CONTACT_EMAIL = 'inder45811@gmail.com'
+const CONTACT_PHONE = '07341555160'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -86,12 +87,21 @@ export default function Contact() {
             >
               Book Your Free Call
             </a>
-            <span className="text-text-secondary text-sm">
-              Or email us:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyan hover:underline">
-                {CONTACT_EMAIL}
-              </a>
-            </span>
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-sm">
+              <span className="text-text-secondary">
+                Or email us:{' '}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyan hover:underline">
+                  {CONTACT_EMAIL}
+                </a>
+              </span>
+              <span className="hidden sm:inline text-text-muted">|</span>
+              <span className="text-text-secondary">
+                Call:{' '}
+                <a href={`tel:${CONTACT_PHONE}`} className="text-cyan hover:underline">
+                  {CONTACT_PHONE}
+                </a>
+              </span>
+            </div>
           </motion.div>
         </motion.div>
 
