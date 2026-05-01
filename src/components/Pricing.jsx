@@ -8,19 +8,19 @@ const fadeUp = {
 const plans = [
   {
     name: 'Starter',
-    price: '$1,500',
+    price: '£1,500',
     features: ['Single page', 'Mobile responsive', '2 revisions', '1 week delivery'],
     highlighted: false,
   },
   {
     name: 'Business',
-    price: '$3,500',
+    price: '£3,500',
     features: ['Up to 5 pages', 'CMS included', '3 revisions', '2 week delivery'],
     highlighted: true,
   },
   {
     name: 'E-Commerce',
-    price: '$6,000+',
+    price: '£6,000+',
     features: ['Full online store', 'Payment integration', 'Custom timeline', 'Unlimited pages'],
     highlighted: false,
   },
