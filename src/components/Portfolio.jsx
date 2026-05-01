@@ -5,24 +5,28 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
+import lunaCoffeeImg from '../assets/luna-coffee.jpg'
+import summitFitnessImg from '../assets/summit-fitness.jpg'
+import meridianLawImg from '../assets/meridian-law.jpg'
+
 const projects = [
   {
     title: 'Luna Coffee',
     description: 'Brand identity + e-commerce for an independent coffee roaster. 40% increase in online orders.',
     tag: 'E-Commerce',
-    gradient: 'linear-gradient(135deg, #0B1020 0%, #132A5E 30%, #00C6FF 100%)',
+    image: lunaCoffeeImg,
   },
   {
     title: 'Summit Fitness',
     description: 'Membership platform for a boutique gym. 200+ new signups in month one.',
     tag: 'Web App',
-    gradient: 'linear-gradient(135deg, #132A5E 0%, #3D5AFE 50%, #7B61FF 100%)',
+    image: summitFitnessImg,
   },
   {
     title: 'Meridian Law',
     description: 'Professional services site. Clean, trustworthy, built to convert consultations.',
     tag: 'Web Design',
-    gradient: 'linear-gradient(135deg, #0B1020 0%, #7B61FF 50%, #00C6FF 100%)',
+    image: meridianLawImg,
   },
 ]
 
@@ -56,20 +60,13 @@ export default function Portfolio() {
               style={{ background: '#161b2b' }}
               id={`portfolio-${project.title.toLowerCase().replace(/\s/g, '-')}`}
             >
-              <div className="relative h-56 md:h-64 overflow-hidden">
+              <div className="relative h-56 md:h-64 overflow-hidden border-b border-[rgba(255,255,255,0.05)]">
                 <motion.div
-                  className="absolute inset-0"
-                  style={{ background: project.gradient }}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${project.image})` }}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                    <circle cx="60" cy="60" r="40" stroke="white" strokeWidth="0.5"/>
-                    <circle cx="60" cy="60" r="55" stroke="white" strokeWidth="0.3" strokeDasharray="4 4"/>
-                    <circle cx="60" cy="60" r="10" fill="white" opacity="0.3"/>
-                  </svg>
-                </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <span className="inline-block self-start px-3 py-1 rounded-full text-xs font-medium text-cyan bg-[rgba(0,198,255,0.1)] mb-3">
