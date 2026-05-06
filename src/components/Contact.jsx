@@ -6,7 +6,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
-const CONTACT_EMAIL = 'inder45811@gmail.com'
+const CONTACT_EMAIL = 'admin@vectormoon.co.uk'
 const CONTACT_PHONE = '07341555160'
 
 export default function Contact() {
