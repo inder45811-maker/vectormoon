@@ -103,6 +103,9 @@ export default function Services() {
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
             Design, build, launch — <span className="gradient-text">done.</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-text-secondary mt-4 max-w-[540px] mx-auto text-sm md:text-base">
+            Web design and development for Coventry and West Midlands businesses that need a site built to get enquiries.
+          </motion.p>
         </motion.div>
 
         {/* Cards grid */}

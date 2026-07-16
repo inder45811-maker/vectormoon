@@ -6,9 +6,9 @@ const fadeUp = {
 }
 
 const stats = [
-  { value: '50+', label: 'Projects' },
-  { value: '2-Week', label: 'Delivery' },
-  { value: '100%', label: 'Client Satisfaction' },
+  { value: '3+', label: 'Live Client Sites' },
+  { value: '2-Week', label: 'Typical Delivery' },
+  { value: 'Coventry', label: 'Based · UK-wide' },
 ]
 
 export default function About() {
@@ -34,14 +34,21 @@ export default function About() {
             About
           </motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-8">
-            Small studio. <span className="gradient-text">Big impact.</span>
+            Coventry studio. <span className="gradient-text">Serious craft.</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-text-secondary text-base md:text-lg leading-relaxed max-w-[700px] mb-6">
+            VectorMoon is a web design studio based in Coventry, working with small businesses,
+            trades, and local brands who need a website that actually wins enquiries — not just
+            looks pretty. No bloated agencies. No offshore hand-offs. Clear communication,
+            modern builds, and results you can measure.
+          </motion.p>
           <motion.p variants={fadeUp} className="text-text-secondary text-base md:text-lg leading-relaxed max-w-[700px] mb-16">
-            VectorMoon is a web design studio built for the modern era. We work with small businesses, startups, and creators who need a website that works as hard as they do. No bloated agencies. No offshore teams. Just focused design, clear communication, and results you can measure.
+            We specialise in sites for service businesses across the West Midlands — from car
+            detailers and product shops to studios that need multi-page local SEO. You talk to
+            the person building your site.
           </motion.p>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           initial="hidden" whileInView="visible"
           viewport={{ once: true }}

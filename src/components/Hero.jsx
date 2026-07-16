@@ -19,7 +19,6 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: '#0B1020' }}
     >
-      {/* Cosmic orbs */}
       <div
         className="cosmic-orb"
         style={{
@@ -47,34 +46,31 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 max-w-[900px] mx-auto px-6 text-center"
       >
-        {/* Pre-headline */}
         <motion.p
           variants={fadeUp}
           className="text-xs md:text-sm font-medium tracking-[0.2em] uppercase text-cyan mb-6"
         >
-          Web Design • UI/UX • Development • Digital Solutions
+          Coventry · West Midlands · UK Web Design
         </motion.p>
 
-        {/* Headline */}
         <motion.h1
           variants={fadeUp}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-[-0.04em] mb-6"
         >
-          Websites that orbit
+          Websites that win
           <br />
-          <span className="gradient-text-purple">your vision</span>
+          <span className="gradient-text-purple">local customers</span>
         </motion.h1>
 
-        {/* Subheadline */}
         <motion.p
           variants={fadeUp}
-          className="text-base md:text-lg text-text-secondary max-w-[600px] mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-text-secondary max-w-[620px] mx-auto mb-10 leading-relaxed"
         >
-          VectorMoon builds modern, high-converting websites for brands ready to
-          stand out. Clean design. Fast delivery. Real results.
+          VectorMoon builds modern, high-converting websites for UK local businesses —
+          detailers, shops, trades and service brands. Based in Coventry. Clean design.
+          Fast delivery. Packages from £799.
         </motion.p>
 
-        {/* CTAs */}
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#contact"
@@ -88,12 +84,18 @@ export default function Hero() {
             className="px-8 py-3.5 rounded-full border border-electric text-white font-medium text-base hover:bg-[rgba(61,90,254,0.1)] active:scale-[0.98] transition-all duration-200"
             id="hero-cta-secondary"
           >
-            View Our Work
+            View Real Work
           </a>
         </motion.div>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-8 text-sm text-text-secondary"
+        >
+          Free 15-minute strategy call · No pressure · Reply within 24 hours
+        </motion.p>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

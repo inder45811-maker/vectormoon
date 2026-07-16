@@ -5,23 +5,50 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
+// Competitive vs Coventry market (local brochure sites often £699–£999;
+// commodity packages from ~£249). Premium modern build sits between budget
+// WordPress mills and £3k–£10k agency quotes.
 const plans = [
   {
     name: 'Starter',
-    price: '£1,500',
-    features: ['Single page', 'Mobile responsive', '2 revisions', '1 week delivery'],
+    price: '£799',
+    blurb: 'Perfect for getting online fast',
+    features: [
+      'Single-page / landing site',
+      'Mobile-first custom design',
+      'Contact form + click-to-call',
+      'Basic on-page SEO',
+      '2 revisions',
+      '~1 week delivery',
+    ],
     highlighted: false,
   },
   {
     name: 'Business',
-    price: '£3,500',
-    features: ['Up to 5 pages', 'CMS included', '3 revisions', '2 week delivery'],
+    price: '£1,499',
+    blurb: 'Most popular for local businesses',
+    features: [
+      'Up to 5 custom pages',
+      'Modern UI + brand-matched layout',
+      'SEO foundation (titles, meta, schema)',
+      'Google Business profile guidance',
+      '3 revisions',
+      '~2 week delivery',
+    ],
     highlighted: true,
   },
   {
     name: 'E-Commerce',
-    price: '£6,000+',
-    features: ['Full online store', 'Payment integration', 'Custom timeline', 'Unlimited pages'],
+    price: '£2,999+',
+    blurb: 'Sell products online with confidence',
+    features: [
+      'Full online store setup',
+      'Payments & product catalogue',
+      'Mobile checkout optimisation',
+      'SEO + trust sections',
+      'Custom timeline',
+      'Priority support',
+    ],
     highlighted: false,
   },
 ]
@@ -40,8 +67,11 @@ export default function Pricing() {
             Investment
           </motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
-            Simple pricing. <span className="gradient-text">Serious value.</span>
+            Coventry-competitive. <span className="gradient-text">No agency bloat.</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-text-secondary mt-4 max-w-[560px] mx-auto text-sm md:text-base">
+            Transparent one-off project pricing — designed to beat bloated agency quotes while delivering modern custom design, not a cheap template.
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -71,8 +101,14 @@ export default function Pricing() {
                 </div>
               )}
 
-              <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
-              <div className="text-4xl font-bold gradient-text mb-6">{plan.price}</div>
+              <h3 className="text-lg font-bold text-white mb-1">{plan.name}</h3>
+              <p className="text-xs text-text-secondary mb-4">{plan.blurb}</p>
+              <div className="text-4xl font-bold gradient-text mb-6">
+                {plan.price}
+                {plan.price !== '£2,999+' && (
+                  <span className="text-sm font-medium text-text-secondary ml-1">one-off</span>
+                )}
+              </div>
 
               <ul className="flex-1 space-y-3 mb-8">
                 {plan.features.map((f) => (
@@ -104,9 +140,9 @@ export default function Pricing() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-text-secondary text-sm mt-8"
+          className="text-center text-text-secondary text-sm mt-8 max-w-[640px] mx-auto"
         >
-          Every project starts with a free 15-minute strategy call. No pressure.
+          Every project starts with a free 15-minute strategy call. Hosting, domain, and ongoing care can be quoted separately — no lock-in monthly contracts required to launch.
         </motion.p>
       </div>
     </section>

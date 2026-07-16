@@ -76,7 +76,7 @@ export default function Contact() {
             Ready to <span className="gradient-text-purple">launch?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-text-secondary text-base md:text-lg leading-relaxed max-w-[550px] mx-auto mb-8">
-            Book a free 15-minute call. We'll talk through your goals and send a custom proposal within 24 hours.
+            Book a free 15-minute call — Coventry and UK-wide. We'll talk through your goals and send a custom proposal within 24 hours.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
