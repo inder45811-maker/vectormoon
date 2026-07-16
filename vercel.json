@@ -1,3 +1,7 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/privacy-policy/", "destination": "/privacy-policy/index.html" },
+    { "source": "/((?!assets/|portfolio/|favicon|robots|sitemap|icons).*)", "destination": "/index.html" }
+  ]
 }

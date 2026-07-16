@@ -1,47 +1,33 @@
 @import "tailwindcss";
 
 /* ============================================
-   VectorMoon Design System — Celestial Editorial
+   VectorMoon — Orbital Luxury Design System
    ============================================ */
 
 @theme {
-  /* Brand Colors */
   --color-void: #0B1020;
   --color-deep-navy: #132A5E;
   --color-nebula: #161b2b;
   --color-satellite: #1a1f30;
   --color-cosmos: #25293a;
   --color-star-dust: #2f3446;
-  
-  /* Accent Colors */
   --color-cyan: #00C6FF;
   --color-cyan-light: #96dcff;
   --color-electric: #3D5AFE;
   --color-purple: #7B61FF;
   --color-purple-light: #cea6ff;
-  
-  /* Text Colors */
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #8892B0;
   --color-text-muted: #bcc8d0;
-  
-  /* Semantic */
   --color-outline: #3d484f;
-  
-  /* Font */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  
-  /* Shadows */
+  --font-display: 'Syne', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
   --shadow-glow-cyan: 0 0 15px rgba(0, 198, 255, 0.3);
   --shadow-glow-cyan-lg: 0 0 30px rgba(0, 198, 255, 0.2);
   --shadow-ambient: 0 12px 48px rgba(222, 225, 249, 0.06);
-  --shadow-card-hover: 0 16px 64px rgba(0, 198, 255, 0.1);
 }
 
-/* Base Styles */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -52,40 +38,27 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   background-color: var(--color-void);
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Selection */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
 ::selection {
   background: rgba(0, 198, 255, 0.3);
   color: #fff;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-void);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-star-dust);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cyan);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb { background: var(--color-star-dust); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-cyan); }
 
-/* Utility — Ghost Border */
-.ghost-border {
-  border: 1px solid rgba(61, 72, 79, 0.15);
-}
-
-/* Utility — Gradient Text */
 .gradient-text {
   background: linear-gradient(135deg, #00C6FF, #3D5AFE);
   -webkit-background-clip: text;
@@ -100,22 +73,16 @@ body {
   background-clip: text;
 }
 
-/* Utility — Section padding */
 .section-pad {
-  padding: 6rem 1.5rem;
+  padding: 5rem 1.25rem;
 }
 @media (min-width: 768px) {
-  .section-pad {
-    padding: 8rem 2rem;
-  }
+  .section-pad { padding: 7rem 2rem; }
 }
 @media (min-width: 1024px) {
-  .section-pad {
-    padding: 10rem 4rem;
-  }
+  .section-pad { padding: 8rem 2rem; }
 }
 
-/* Cosmic Orb */
 .cosmic-orb {
   position: absolute;
   border-radius: 50%;
@@ -124,27 +91,111 @@ body {
   z-index: 0;
 }
 
-/* Glassmorphism */
 .glass {
-  background: rgba(26, 31, 48, 0.6);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  background: rgba(11, 16, 32, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
 }
 
-/* Nav link underline animation */
 .nav-link {
   position: relative;
 }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1.5px;
   background: var(--color-cyan);
   transition: width 0.3s ease;
 }
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
+}
+
+/* Noise film overlay — luxury print feel */
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.mesh-grid {
+  background-image:
+    linear-gradient(rgba(0, 198, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 198, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+}
+
+.star-dot {
+  animation: twinkle 3.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.3); }
+}
+
+.orbit-spin-slow {
+  animation: orbit-spin 80s linear infinite;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-sat {
+  /* satellite sits on top of ring path — decorative */
+}
+
+.field-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(61, 72, 79, 0.35);
+  color: #fff;
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.field-input:focus {
+  border-bottom-color: #00C6FF;
+}
+.field-input::placeholder {
+  color: #5c657a;
+}
+.field-input:disabled {
+  opacity: 0.5;
+}
+
+.device-frame {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.device-frame:hover {
+  box-shadow: 0 40px 100px rgba(0, 198, 255, 0.12), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-spin-slow,
+  .star-dot {
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
 }

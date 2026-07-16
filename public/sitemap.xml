@@ -6,6 +6,46 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.vectormoon.co.uk/work</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/work/ramz-detailz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/work/punjabi-number-plates</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/work/making-marks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/web-design-coventry</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.vectormoon.co.uk/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.vectormoon.co.uk/privacy-policy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

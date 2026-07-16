@@ -1,0 +1,47 @@
+export const plans = [
+  {
+    name: 'Starter',
+    price: '£799',
+    period: 'one-off',
+    blurb: 'Launch online with a sharp single-page presence',
+    features: [
+      'Single-page / landing site',
+      'Custom high-end design',
+      'Mobile-first + contact form',
+      'Basic on-page SEO',
+      '2 revision rounds',
+      '~1 week delivery',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Business',
+    price: '£1,499',
+    period: 'one-off',
+    blurb: 'Most popular for Coventry & West Midlands SMEs',
+    features: [
+      'Up to 5 SEO-ready pages',
+      'Brand-matched UI system',
+      'Titles, meta, schema foundation',
+      'Google Business guidance',
+      '3 revision rounds',
+      '~2 week delivery',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'E-Commerce',
+    price: '£2,999+',
+    period: 'project',
+    blurb: 'Sell products with a store built to convert',
+    features: [
+      'Full online store setup',
+      'Payments & product catalogue',
+      'Mobile checkout optimisation',
+      'SEO + trust sections',
+      'Custom timeline',
+      'Priority support window',
+    ],
+    highlighted: false,
+  },
+]
