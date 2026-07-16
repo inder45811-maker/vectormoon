@@ -1,9 +1,10 @@
-import { Helmet } from 'react-helmet-async'
-
+/**
+ * React 19 native head hoisting — no react-helmet-async needed.
+ * Title/meta/link/script render into the component tree and React hoists them to <head>.
+ */
 export default function Seo({ title, description, url, type = 'website', image, jsonLd }) {
   return (
-    <Helmet>
-      <html lang="en-GB" />
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
@@ -18,16 +19,16 @@ export default function Seo({ title, description, url, type = 'website', image, 
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      {image && <meta property="og:image" content={image} />}
+      {image ? <meta property="og:image" content={image} /> : null}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      {image && <meta name="twitter:image" content={image} />}
+      {image ? <meta name="twitter:image" content={image} /> : null}
 
-      {jsonLd && (
+      {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      )}
-    </Helmet>
+      ) : null}
+    </>
   )
 }
