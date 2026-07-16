@@ -76,11 +76,24 @@ for (const route of routes) {
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 })
   await page.waitForTimeout(800)
   let html = await page.content()
-  // Keep only the last <title> (react-helmet) so crawlers don't see the shell title first
+  // Prefer the last helmet-injected title/canonical (SPA shell may leave defaults first)
   const titles = [...html.matchAll(/<title>[\s\S]*?<\/title>/gi)]
-  if (titles.length > 1) {
+  if (titles.length) {
     const last = titles[titles.length - 1][0]
     html = html.replace(/<title>[\s\S]*?<\/title>/gi, '')
+    html = html.replace(/<\/head>/i, `${last}</head>`)
+  }
+  const canons = [...html.matchAll(/<link[^>]+rel=["']canonical["'][^>]*>/gi)]
+  if (canons.length) {
+    const last = canons[canons.length - 1][0]
+    html = html.replace(/<link[^>]+rel=["']canonical["'][^>]*>/gi, '')
+    html = html.replace(/<\/head>/i, `${last}</head>`)
+  }
+  // Drop duplicate meta descriptions — keep the last
+  const descs = [...html.matchAll(/<meta[^>]+name=["']description["'][^>]*>/gi)]
+  if (descs.length > 1) {
+    const last = descs[descs.length - 1][0]
+    html = html.replace(/<meta[^>]+name=["']description["'][^>]*>/gi, '')
     html = html.replace(/<\/head>/i, `${last}</head>`)
   }
   const outDir = route === '/' ? dist : path.join(dist, route.slice(1))
