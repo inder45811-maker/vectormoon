@@ -16,6 +16,9 @@ const fade = {
   }),
 }
 
+const featuredClient =
+  projects.find((p) => p.slug === 'punjabi-number-plates') ?? projects[0]
+
 export default function Home() {
   const seo = pageSeo({
     title: 'VectorMoon | High-End Web Design Coventry & West Midlands',
@@ -131,12 +134,12 @@ export default function Home() {
           >
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cyan/20 via-electric/10 to-purple/20 blur-2xl" />
             <DeviceFrame
-              src={projects[0].image}
-              alt="Ramz DETAILZ — live client site"
+              src={featuredClient.image}
+              alt={`${featuredClient.title} — live client site`}
               className="relative rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500"
             />
             <div className="absolute -bottom-4 -left-2 hidden rounded-xl border border-white/10 bg-nebula/90 px-4 py-3 text-xs text-text-secondary backdrop-blur md:block">
-              <span className="text-cyan">●</span> Live client · Coventry detailing
+              <span className="text-cyan">●</span> Live client · {featuredClient.title}
             </div>
           </motion.div>
         </div>
