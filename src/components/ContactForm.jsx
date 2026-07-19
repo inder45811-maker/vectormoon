@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const CONTACT_EMAIL = 'admin@vectormoon.co.uk'
+const CONTACT_EMAIL = 'indi@vectormoon.co.uk'
 const CONTACT_PHONE = '07341555160'
 
 export default function ContactForm() {

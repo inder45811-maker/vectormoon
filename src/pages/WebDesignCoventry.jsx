@@ -144,8 +144,8 @@ export default function WebDesignCoventry() {
             <h2 className="text-2xl font-bold">Serving Coventry &amp; the West Midlands</h2>
             <p className="mt-3 text-sm text-text-secondary max-w-md mx-auto">
               Email{' '}
-              <a className="text-cyan" href="mailto:admin@vectormoon.co.uk">
-                admin@vectormoon.co.uk
+              <a className="text-cyan" href="mailto:indi@vectormoon.co.uk">
+                indi@vectormoon.co.uk
               </a>{' '}
               · Call{' '}
               <a className="text-cyan" href="tel:07341555160">

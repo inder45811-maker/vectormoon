@@ -53,8 +53,8 @@ export default function Footer() {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-text-secondary">Contact</p>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>
-                <a href="mailto:admin@vectormoon.co.uk" className="hover:text-cyan">
-                  admin@vectormoon.co.uk
+                <a href="mailto:indi@vectormoon.co.uk" className="hover:text-cyan">
+                  indi@vectormoon.co.uk
                 </a>
               </li>
               <li>

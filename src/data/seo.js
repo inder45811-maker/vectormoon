@@ -32,7 +32,7 @@ export const businessJsonLd = {
   image: DEFAULT_IMAGE,
   description:
     'High-end web design studio in Coventry building modern, high-converting websites for UK local businesses.',
-  email: 'admin@vectormoon.co.uk',
+  email: 'indi@vectormoon.co.uk',
   telephone: '+447341555160',
   priceRange: '£799–£2999+',
   currenciesAccepted: 'GBP',

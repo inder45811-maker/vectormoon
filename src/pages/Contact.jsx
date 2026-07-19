@@ -7,7 +7,7 @@ export default function Contact() {
   const seo = pageSeo({
     title: 'Contact VectorMoon | Free Web Design Strategy Call — Coventry',
     description:
-      'Book a free 15-minute web design strategy call with VectorMoon in Coventry. Email admin@vectormoon.co.uk or call 07341 555160.',
+      'Book a free 15-minute web design strategy call with VectorMoon in Coventry. Email indi@vectormoon.co.uk or call 07341 555160.',
     path: '/contact',
     jsonLd: {
       '@context': 'https://schema.org',
