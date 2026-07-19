@@ -1,4 +1,4 @@
-const SITE = 'https://www.vectormoon.co.uk'
+const SITE = 'https://vectormoon.co.uk'
 const DEFAULT_IMAGE = `${SITE}/favicon.svg`
 
 export function pageSeo({

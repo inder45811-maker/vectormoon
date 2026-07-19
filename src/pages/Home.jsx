@@ -31,10 +31,10 @@ export default function Home() {
         businessJsonLd,
         {
           '@type': 'WebSite',
-          '@id': 'https://www.vectormoon.co.uk/#website',
-          url: 'https://www.vectormoon.co.uk/',
+          '@id': 'https://vectormoon.co.uk/#website',
+          url: 'https://vectormoon.co.uk/',
           name: 'VectorMoon',
-          publisher: { '@id': 'https://www.vectormoon.co.uk/#business' },
+          publisher: { '@id': 'https://vectormoon.co.uk/#business' },
         },
       ],
     },
@@ -136,6 +136,8 @@ export default function Home() {
             <DeviceFrame
               src={featuredClient.image}
               alt={`${featuredClient.title} — live client site`}
+              loading="eager"
+              fetchPriority="high"
               className="relative rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500"
             />
             <div className="absolute -bottom-4 -left-2 hidden rounded-xl border border-white/10 bg-nebula/90 px-4 py-3 text-xs text-text-secondary backdrop-blur md:block">

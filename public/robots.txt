@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.vectormoon.co.uk/sitemap.xml
+Sitemap: https://vectormoon.co.uk/sitemap.xml

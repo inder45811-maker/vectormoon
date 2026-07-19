@@ -1,5 +1,11 @@
 /** Browser chrome frame for portfolio screenshots */
-export default function DeviceFrame({ src, alt, className = '' }) {
+export default function DeviceFrame({
+  src,
+  alt,
+  className = '',
+  loading = 'lazy',
+  fetchPriority = 'auto',
+}) {
   return (
     <div
       className={`device-frame group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e18] shadow-[0_40px_100px_rgba(0,0,0,0.55)] ${className}`}
@@ -17,8 +23,12 @@ export default function DeviceFrame({ src, alt, className = '' }) {
           <img
             src={src}
             alt={alt}
+            width="2880"
+            height="1800"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-            loading="lazy"
+            loading={loading}
+            fetchPriority={fetchPriority}
+            decoding="async"
           />
         ) : (
           <div className="flex h-full items-center justify-center text-text-secondary text-sm">Preview</div>

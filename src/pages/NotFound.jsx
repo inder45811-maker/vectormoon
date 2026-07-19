@@ -7,7 +7,7 @@ export default function NotFound() {
       <Seo
         title="Page not found | VectorMoon"
         description="That page does not exist."
-        url="https://www.vectormoon.co.uk/404"
+        url="https://vectormoon.co.uk/404"
       />
       <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 text-center pt-24">
         <p className="text-xs uppercase tracking-[0.2em] text-cyan">404</p>

@@ -12,7 +12,7 @@ export default function Work() {
     description:
       'Live websites built by VectorMoon: Ramz DETAILZ (Coventry), Punjabi Number Plates (e-commerce), and Making Marks Tattoo Co (Leamington Spa).',
     path: '/work',
-    image: 'https://www.vectormoon.co.uk/portfolio/punjabi-number-plates-desktop.png',
+    image: 'https://vectormoon.co.uk/portfolio/punjabi-number-plates-desktop.jpg',
   })
 
   return (
