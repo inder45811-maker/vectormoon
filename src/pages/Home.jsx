@@ -7,15 +7,6 @@ import { projects } from '../data/projects'
 import { plans } from '../data/pricing'
 import { businessJsonLd, pageSeo } from '../data/seo'
 
-const fade = {
-  hidden: { opacity: 0, y: 24 },
-  show: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.1 * i, duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
-
 const featuredClient =
   projects.find((p) => p.slug === 'punjabi-number-plates') ?? projects[0]
 
@@ -60,43 +51,19 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center gap-12 px-5 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-28">
           <div>
-            <motion.p
-              custom={0}
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              className="mb-5 text-xs font-medium uppercase tracking-[0.24em] text-cyan"
-            >
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.24em] text-cyan">
               Coventry · West Midlands · UK
-            </motion.p>
-            <motion.h1
-              custom={1}
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              className="text-4xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-[3.75rem]"
-            >
+            </p>
+            <h1 className="text-4xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-[3.75rem]">
               Websites engineered
               <br />
               to <span className="gradient-text-purple">win work</span>
-            </motion.h1>
-            <motion.p
-              custom={2}
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              className="mt-6 max-w-[520px] text-base leading-relaxed text-text-secondary md:text-lg"
-            >
+            </h1>
+            <p className="mt-6 max-w-[520px] text-base leading-relaxed text-text-secondary md:text-lg">
               High-end custom sites for local businesses — detailers, shops, studios, trades.
               Built for Google, AI search, and humans who book.
-            </motion.p>
-            <motion.div
-              custom={3}
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              className="mt-9 flex flex-col gap-3 sm:flex-row"
-            >
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/contact"
                 className="rounded-full bg-cyan px-8 py-3.5 text-center text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
@@ -109,20 +76,14 @@ export default function Home() {
               >
                 View Real Work
               </Link>
-            </motion.div>
-            <motion.div
-              custom={4}
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              className="mt-10 flex flex-wrap gap-6 text-xs uppercase tracking-[0.16em] text-text-secondary"
-            >
+            </div>
+            <div className="mt-10 flex flex-wrap gap-6 text-xs uppercase tracking-[0.16em] text-text-secondary">
               <span>From £799</span>
               <span className="text-white/20">|</span>
               <span>~2 week delivery</span>
               <span className="text-white/20">|</span>
               <span>3 live client sites</span>
-            </motion.div>
+            </div>
           </div>
 
           <motion.div
