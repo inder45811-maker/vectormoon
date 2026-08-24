@@ -6,11 +6,13 @@ import Testimonials from '../components/Testimonials'
 import { projects } from '../data/projects'
 import { plans } from '../data/pricing'
 import { pageSeo, businessJsonLd } from '../data/seo'
-import { getLocation } from '../data/locations'
+import { getLocation, countyRegion } from '../data/locations'
 
 export default function LocationPage({ slug }) {
   const loc = getLocation(slug)
   if (!loc) return <Navigate to="/" replace />
+
+  const nearby = (loc.nearby || []).map((s) => getLocation(s)).filter(Boolean)
 
   const seo = pageSeo({
     title: loc.title,
@@ -49,7 +51,7 @@ export default function LocationPage({ slug }) {
 
   return (
     <>
-      <Seo {...seo} />
+      <Seo {...seo} geoRegion={countyRegion(loc.county)} geoPlacename={loc.town} />
       <PageHero
         eyebrow={loc.eyebrow}
         title={loc.heroTitle}
@@ -70,6 +72,23 @@ export default function LocationPage({ slug }) {
               <p key={para}>{para}</p>
             ))}
           </div>
+
+          {nearby.length > 0 && (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold mb-4">Also serving nearby towns</h2>
+              <div className="flex flex-wrap gap-3">
+                {nearby.map((n) => (
+                  <Link
+                    key={n.slug}
+                    to={`/web-design-${n.slug}`}
+                    className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-text-secondary transition hover:border-cyan/40 hover:text-cyan"
+                  >
+                    Web Design {n.town}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-14">
             <h2 className="text-2xl font-bold mb-6">Local work nearby</h2>

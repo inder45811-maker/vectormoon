@@ -2,7 +2,7 @@ function townFaqs(town, county) {
   return [
     {
       q: `How much does web design cost in ${town}?`,
-      a: `VectorMoon packages start at £799 for a single-page launch site, £1,499 for a multi-page business website, and from £2,999 for e-commerce. Local brochure competitors often price £699–£999; we sit just above that with higher-end custom design and multi-page SEO structure.`,
+      a: `VectorMoon packages start at £799 for a Core Build single-page site, £1,499 for a Growth Engine multi-page website, and from £2,999 for Enterprise Scale (including e-commerce). Local brochure competitors often price £699–£999; we sit just above that with higher-end custom design and multi-page SEO structure.`,
     },
     {
       q: `Do you only work with ${town} businesses?`,
@@ -14,9 +14,22 @@ function townFaqs(town, county) {
     },
     {
       q: 'How long until my site launches?',
-      a: 'Most Starter and Business projects launch in about one to two weeks once content and feedback are ready.',
+      a: 'Most Core Build and Growth Engine projects launch in about one to two weeks once content and feedback are ready.',
     },
   ]
+}
+
+// ISO 3166-2:GB region codes for per-town geo meta tags.
+const COUNTY_REGION = {
+  'West Midlands': 'GB-WMD',
+  Warwickshire: 'GB-WAR',
+  Staffordshire: 'GB-STS',
+  Leicestershire: 'GB-LEC',
+  Worcestershire: 'GB-WOR',
+}
+
+export function countyRegion(county) {
+  return COUNTY_REGION[county] || 'GB-WMD'
 }
 
 export const locations = [
@@ -37,6 +50,7 @@ export const locations = [
       'Local competitors often sell WordPress brochure packages from around £699–£999. We compete on value with modern design, multi-page architecture for SEO and GEO (AI search), and packages from £799 that still leave room for craft — not template lock-in.',
     ],
     faqs: townFaqs('Coventry', 'West Midlands'),
+    nearby: ['bedworth', 'nuneaton', 'warwick', 'solihull'],
   },
   {
     slug: 'bedworth',
@@ -55,6 +69,7 @@ export const locations = [
       'VectorMoon builds custom multi-page sites for Bedworth businesses with clear pricing from £799, real portfolio proof, and technical SEO that goes beyond a single scrolling page. No template lock-in, no agency bloat.',
     ],
     faqs: townFaqs('Bedworth', 'Warwickshire'),
+    nearby: ['coventry', 'nuneaton', 'tamworth'],
   },
   {
     slug: 'nuneaton',
@@ -73,6 +88,7 @@ export const locations = [
       'VectorMoon builds modern, mobile-first, multi-page sites for Nuneaton businesses that rank on Google, load fast, and actually convert — with clear pricing from £799 and real portfolio proof.',
     ],
     faqs: townFaqs('Nuneaton', 'Warwickshire'),
+    nearby: ['coventry', 'bedworth', 'tamworth'],
   },
   {
     slug: 'warwick',
@@ -91,6 +107,7 @@ export const locations = [
       'VectorMoon builds high-end, fast, SEO-ready sites for Warwick and Warwickshire businesses — with clear pricing from £799, multi-page architecture for Google and AI search, and real portfolio proof.',
     ],
     faqs: townFaqs('Warwick', 'Warwickshire'),
+    nearby: ['leamington-spa', 'kenilworth', 'stratford-upon-avon'],
   },
   {
     slug: 'leamington-spa',
@@ -109,6 +126,7 @@ export const locations = [
       'VectorMoon builds premium custom sites for Leamington businesses — from £799, with multi-page SEO structure that helps you rank locally and a polished look that matches the town.',
     ],
     faqs: townFaqs('Leamington Spa', 'Warwickshire'),
+    nearby: ['warwick', 'kenilworth', 'coventry'],
   },
   {
     slug: 'kenilworth',
@@ -127,6 +145,7 @@ export const locations = [
       'VectorMoon builds premium, fast, SEO-ready sites for Kenilworth businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no Birmingham agency overhead.',
     ],
     faqs: townFaqs('Kenilworth', 'Warwickshire'),
+    nearby: ['coventry', 'warwick', 'leamington-spa'],
   },
   {
     slug: 'rugby',
@@ -145,6 +164,7 @@ export const locations = [
       'VectorMoon builds modern, mobile-first, multi-page sites for Rugby businesses that rank locally, load fast, and turn searches into enquiries — with clear pricing from £799 and real portfolio proof.',
     ],
     faqs: townFaqs('Rugby', 'Warwickshire'),
+    nearby: ['coventry', 'leamington-spa', 'warwick'],
   },
   {
     slug: 'solihull',
@@ -163,6 +183,159 @@ export const locations = [
       'VectorMoon gives Solihull businesses high-end custom design without the big-city overhead — multi-page sites from £799 that rank on Google and AI search, real portfolio proof, and a local studio that actually answers the phone.',
     ],
     faqs: townFaqs('Solihull', 'West Midlands'),
+    nearby: ['birmingham', 'coventry', 'sutton-coldfield'],
+  },
+  {
+    slug: 'stratford-upon-avon',
+    town: 'Stratford-upon-Avon',
+    county: 'Warwickshire',
+    title: 'Web Design Stratford-upon-Avon | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Stratford-upon-Avon, Warwickshire. VectorMoon builds premium, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Stratford-upon-Avon',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Stratford-upon-Avon.',
+    subtitle:
+      'Modern multi-page sites for Stratford-upon-Avon and Warwickshire businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Stratford-upon-Avon lives on tourism — a steady stream of visitors who plan the trip on their phone before they arrive. Independent shops, restaurants, B&Bs, and attractions that don't show up cleanly on Google hand that footfall to the next result.",
+      "VectorMoon builds premium, fast, SEO-ready sites for Stratford businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no Birmingham agency overhead.",
+    ],
+    faqs: townFaqs('Stratford-upon-Avon', 'Warwickshire'),
+    nearby: ['warwick', 'kenilworth', 'alcester'],
+  },
+  {
+    slug: 'birmingham',
+    town: 'Birmingham',
+    county: 'West Midlands',
+    title: 'Web Design Birmingham | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Birmingham, West Midlands. VectorMoon builds high-end, fast, SEO-ready websites for local businesses — without the city-centre overhead. Packages from £799.',
+    eyebrow: 'Web design Birmingham',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Birmingham.',
+    subtitle:
+      'Modern multi-page sites for Birmingham and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Birmingham is the region's biggest market — and its most crowded one. Local firms either pay city-agency prices for a brochure site or settle for a template that does nothing. You don't need a Birmingham postcode to out-rank the competition; you need a site built to rank.",
+      "VectorMoon gives Birmingham businesses high-end custom design without the city-centre overhead — multi-page sites from £799 that rank on Google and AI search, real portfolio proof, and a West Midlands studio that actually answers the phone.",
+    ],
+    faqs: townFaqs('Birmingham', 'West Midlands'),
+    nearby: ['solihull', 'sutton-coldfield', 'west-bromwich'],
+  },
+  {
+    slug: 'wolverhampton',
+    town: 'Wolverhampton',
+    county: 'West Midlands',
+    title: 'Web Design Wolverhampton | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Wolverhampton, West Midlands. VectorMoon builds modern, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Wolverhampton',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Wolverhampton.',
+    subtitle:
+      'Modern multi-page sites for Wolverhampton and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Wolverhampton's trades, independents, and professional services still lean heavily on word of mouth — but the first thing a new customer does is search on their phone. If you're not there, the job goes to whoever is.",
+      "VectorMoon builds modern, fast, SEO-ready sites for Wolverhampton businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no Birmingham agency overhead.",
+    ],
+    faqs: townFaqs('Wolverhampton', 'West Midlands'),
+    nearby: ['walsall', 'dudley', 'west-bromwich'],
+  },
+  {
+    slug: 'sutton-coldfield',
+    town: 'Sutton Coldfield',
+    county: 'West Midlands',
+    title: 'Web Design Sutton Coldfield | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Sutton Coldfield, West Midlands. VectorMoon builds high-end, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Sutton Coldfield',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Sutton Coldfield.',
+    subtitle:
+      'Modern multi-page sites for Sutton Coldfield and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Sutton Coldfield is an affluent, professional market — clients, solicitors, clinics, and salons whose customers expect polish before they pick up the phone. Yet plenty still pay big-city prices for a site that works no harder than a brochure.",
+      "VectorMoon gives Sutton Coldfield businesses high-end custom design without the city-centre overhead — multi-page sites from £799 that rank on Google and AI search, real portfolio proof, and a local studio that actually answers the phone.",
+    ],
+    faqs: townFaqs('Sutton Coldfield', 'West Midlands'),
+    nearby: ['birmingham', 'solihull', 'lichfield'],
+  },
+  {
+    slug: 'walsall',
+    town: 'Walsall',
+    county: 'West Midlands',
+    title: 'Web Design Walsall | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Walsall, West Midlands. VectorMoon builds modern, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Walsall',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Walsall.',
+    subtitle:
+      'Modern multi-page sites for Walsall and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Walsall's independent shops, salons, and trades live or die on local trust. A sharp, fast website turns that trust into booked work — and shows up when someone searches 'web design Walsall'.",
+      "VectorMoon builds modern, fast, SEO-ready sites for Walsall businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no agency bloat.",
+    ],
+    faqs: townFaqs('Walsall', 'West Midlands'),
+    nearby: ['wolverhampton', 'west-bromwich', 'dudley'],
+  },
+  {
+    slug: 'dudley',
+    town: 'Dudley',
+    county: 'West Midlands',
+    title: 'Web Design Dudley | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Dudley, West Midlands. VectorMoon builds modern, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Dudley',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Dudley.',
+    subtitle:
+      'Modern multi-page sites for Dudley and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Dudley and the Black Country are full of established trades and independents with reputations built over decades — but plenty still have no real presence online. A dated or DIY site quietly hands that reputation to a competitor one search away.",
+      "VectorMoon builds modern, fast, SEO-ready sites for Dudley businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no agency bloat.",
+    ],
+    faqs: townFaqs('Dudley', 'West Midlands'),
+    nearby: ['wolverhampton', 'west-bromwich', 'stourbridge'],
+  },
+  {
+    slug: 'west-bromwich',
+    town: 'West Bromwich',
+    county: 'West Midlands',
+    title: 'Web Design West Bromwich | Local Website Designer — VectorMoon',
+    description:
+      'Web design in West Bromwich, West Midlands. VectorMoon builds modern, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design West Bromwich',
+    heroTitle: 'Your local website studio',
+    highlight: 'in West Bromwich.',
+    subtitle:
+      'Modern multi-page sites for West Bromwich and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "West Bromwich sits at the centre of the West Midlands' busiest trade corridors. Its independents and family businesses are trusted in person but too often invisible online — a Facebook page quietly costing them enquiries.",
+      "VectorMoon builds modern, fast, SEO-ready sites for West Bromwich businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no agency bloat.",
+    ],
+    faqs: townFaqs('West Bromwich', 'West Midlands'),
+    nearby: ['birmingham', 'walsall', 'dudley'],
+  },
+  {
+    slug: 'tamworth',
+    town: 'Tamworth',
+    county: 'Staffordshire',
+    title: 'Web Design Tamworth | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Tamworth, Staffordshire. VectorMoon builds modern, mobile-first, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Tamworth',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Tamworth.',
+    subtitle:
+      'Modern multi-page sites for Tamworth and Staffordshire businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Tamworth is growing fast — new homes, new commuters, and a high street of trades and independents that don't all show up online yet. The people moving in search on their phone first, and if you're not there, the job goes to whoever is.",
+      "VectorMoon builds modern, mobile-first, multi-page sites for Tamworth businesses that rank locally, load fast, and turn searches into enquiries — with clear pricing from £799 and real portfolio proof.",
+    ],
+    faqs: townFaqs('Tamworth', 'Staffordshire'),
+    nearby: ['sutton-coldfield', 'lichfield', 'atherstone'],
   },
 ]
 
