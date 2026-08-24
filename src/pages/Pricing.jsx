@@ -8,7 +8,7 @@ export default function Pricing() {
   const seo = pageSeo({
     title: 'Website Design Pricing UK | From £799 — VectorMoon',
     description:
-      'Transparent web design pricing: Starter £799, Business £1,499, E-Commerce from £2,999. Competitive for Coventry & UK small businesses. Free strategy call.',
+      'Transparent web design pricing: Core Build £799, Growth Engine £1,499, Enterprise Scale from £2,999. Competitive for Coventry & UK small businesses. Free strategy call.',
     path: '/pricing',
     jsonLd: {
       '@context': 'https://schema.org',

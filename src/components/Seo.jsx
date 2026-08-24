@@ -2,15 +2,24 @@
  * React 19 native head hoisting — no react-helmet-async needed.
  * Title/meta/link/script render into the component tree and React hoists them to <head>.
  */
-export default function Seo({ title, description, url, type = 'website', image, jsonLd }) {
+export default function Seo({
+  title,
+  description,
+  url,
+  type = 'website',
+  image,
+  jsonLd,
+  geoRegion = 'GB-COV',
+  geoPlacename = 'Coventry',
+}) {
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       <meta name="robots" content="index, follow, max-image-preview:large" />
-      <meta name="geo.region" content="GB-COV" />
-      <meta name="geo.placename" content="Coventry" />
+      <meta name="geo.region" content={geoRegion} />
+      <meta name="geo.placename" content={geoPlacename} />
       <meta name="author" content="VectorMoon" />
 
       <meta property="og:type" content={type} />
