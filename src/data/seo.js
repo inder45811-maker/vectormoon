@@ -1,5 +1,5 @@
 const SITE = 'https://vectormoon.co.uk'
-const DEFAULT_IMAGE = `${SITE}/favicon.svg`
+const DEFAULT_IMAGE = `${SITE}/og-image.png`
 
 export function pageSeo({
   title,

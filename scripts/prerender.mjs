@@ -15,7 +15,7 @@ const shellPath = path.join(dist, '_spa-shell.html')
 const routes = [
   '/',
   '/work',
-  '/work/ramz-detailz',
+  '/work/dips-pt',
   '/work/punjabi-number-plates',
   '/work/making-marks',
   '/services',

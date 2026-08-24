@@ -10,7 +10,7 @@ export default function Work() {
   const seo = pageSeo({
     title: 'Portfolio & Client Work | VectorMoon Coventry',
     description:
-      'Live websites built by VectorMoon: Ramz DETAILZ (Coventry), Punjabi Number Plates (e-commerce), and Making Marks Tattoo Co (Leamington Spa).',
+      'Live websites built by VectorMoon: Dips PT (Coventry), Punjabi Number Plates (e-commerce), and Making Marks Tattoo Co (Leamington Spa).',
     path: '/work',
     image: 'https://vectormoon.co.uk/portfolio/punjabi-number-plates-desktop.jpg',
   })

@@ -8,8 +8,8 @@ const outDir = path.join(__dirname, '..', 'public', 'portfolio')
 
 const sites = [
   {
-    slug: 'ramz-detailz',
-    url: 'https://inder45811-maker.github.io/Ramz_detailz/',
+    slug: 'dips-pt',
+    url: 'https://hskcoaching.co.uk/',
   },
   {
     slug: 'punjabi-number-plates',

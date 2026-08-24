@@ -20,11 +20,13 @@ export default function Seo({ title, description, url, type = 'website', image, 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       {image ? <meta property="og:image" content={image} /> : null}
+      {image ? <meta property="og:image:alt" content={title} /> : null}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {image ? <meta name="twitter:image" content={image} /> : null}
+      {image ? <meta name="twitter:image:alt" content={title} /> : null}
 
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
