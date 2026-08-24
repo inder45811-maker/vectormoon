@@ -20,6 +20,10 @@ const routes = [
   '/work/making-marks',
   '/services',
   '/web-design-coventry',
+  '/web-design-bedworth',
+  '/web-design-nuneaton',
+  '/web-design-warwick',
+  '/web-design-leamington-spa',
   '/pricing',
   '/contact',
 ]
