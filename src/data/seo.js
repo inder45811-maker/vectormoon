@@ -1,3 +1,5 @@
+import { locations } from './locations'
+
 const SITE = 'https://vectormoon.co.uk'
 const DEFAULT_IMAGE = `${SITE}/og-image.png`
 
@@ -22,6 +24,8 @@ export function pageSeo({
   }
 }
 
+const areaCounties = [...new Set(locations.map((l) => l.county))]
+
 export const businessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -37,8 +41,8 @@ export const businessJsonLd = {
   priceRange: '£799–£2999+',
   currenciesAccepted: 'GBP',
   areaServed: [
-    { '@type': 'City', name: 'Coventry' },
-    { '@type': 'AdministrativeArea', name: 'West Midlands' },
+    ...locations.map((l) => ({ '@type': 'City', name: l.town })),
+    ...areaCounties.map((c) => ({ '@type': 'AdministrativeArea', name: c })),
     { '@type': 'Country', name: 'United Kingdom' },
   ],
   address: {
