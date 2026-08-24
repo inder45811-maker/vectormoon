@@ -7,6 +7,8 @@ import { createServer } from 'http'
 import { readFile, writeFile, mkdir, copyFile, stat } from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { projects } from '../src/data/projects.js'
+import { locations } from '../src/data/locations.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const dist = path.join(__dirname, '..', 'dist')
@@ -15,15 +17,9 @@ const shellPath = path.join(dist, '_spa-shell.html')
 const routes = [
   '/',
   '/work',
-  '/work/dips-pt',
-  '/work/punjabi-number-plates',
-  '/work/making-marks',
+  ...projects.map((p) => `/work/${p.slug}`),
   '/services',
-  '/web-design-coventry',
-  '/web-design-bedworth',
-  '/web-design-nuneaton',
-  '/web-design-warwick',
-  '/web-design-leamington-spa',
+  ...locations.map((l) => `/web-design-${l.slug}`),
   '/pricing',
   '/contact',
 ]

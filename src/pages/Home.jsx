@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
 import DeviceFrame from '../components/ui/DeviceFrame'
 import OrbitRing from '../components/ui/OrbitRing'
+import Testimonials from '../components/Testimonials'
 import { projects } from '../data/projects'
 import { plans } from '../data/pricing'
 import { businessJsonLd, pageSeo } from '../data/seo'
@@ -221,6 +222,9 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* SOCIAL PROOF (renders once real testimonials are added) */}
+      <Testimonials />
 
       {/* CTA */}
       <section

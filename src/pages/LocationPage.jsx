@@ -2,6 +2,7 @@ import { Link, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
 import PageHero from '../components/ui/PageHero'
 import DeviceFrame from '../components/ui/DeviceFrame'
+import Testimonials from '../components/Testimonials'
 import { projects } from '../data/projects'
 import { plans } from '../data/pricing'
 import { pageSeo, businessJsonLd } from '../data/seo'
@@ -115,6 +116,8 @@ export default function LocationPage({ slug }) {
               ))}
             </div>
           </div>
+
+          <Testimonials />
 
           <div className="mt-16 rounded-2xl border border-cyan/25 bg-gradient-to-br from-cyan/10 to-purple/5 p-8 text-center">
             <h2 className="text-2xl font-bold">

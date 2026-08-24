@@ -7,6 +7,7 @@ import Work from './pages/Work'
 import WorkDetail from './pages/WorkDetail'
 import Services from './pages/Services'
 import LocationPage from './pages/LocationPage'
+import { locations } from './data/locations'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
@@ -41,11 +42,9 @@ export default function App() {
         <Route path="work" element={<Work />} />
         <Route path="work/:slug" element={<WorkDetail />} />
         <Route path="services" element={<Services />} />
-        <Route path="web-design-coventry" element={<LocationPage slug="coventry" />} />
-        <Route path="web-design-bedworth" element={<LocationPage slug="bedworth" />} />
-        <Route path="web-design-nuneaton" element={<LocationPage slug="nuneaton" />} />
-        <Route path="web-design-warwick" element={<LocationPage slug="warwick" />} />
-        <Route path="web-design-leamington-spa" element={<LocationPage slug="leamington-spa" />} />
+        {locations.map((l) => (
+          <Route key={l.slug} path={`web-design-${l.slug}`} element={<LocationPage slug={l.slug} />} />
+        ))}
         <Route path="pricing" element={<Pricing />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
