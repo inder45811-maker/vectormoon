@@ -4,7 +4,7 @@ import PageHero from '../components/ui/PageHero'
 import DeviceFrame from '../components/ui/DeviceFrame'
 import Testimonials from '../components/Testimonials'
 import { projects } from '../data/projects'
-import { plans } from '../data/pricing'
+import { plans, careDisclosure } from '../data/pricing'
 import { pageSeo, businessJsonLd } from '../data/seo'
 import { getLocation, countyRegion } from '../data/locations'
 
@@ -117,6 +117,7 @@ export default function LocationPage({ slug }) {
             <Link to="/pricing" className="mt-4 inline-block text-sm text-cyan hover:underline">
               Full package details →
             </Link>
+            <p className="mt-4 text-sm text-text-secondary">{careDisclosure}</p>
           </div>
 
           <div className="mt-16">

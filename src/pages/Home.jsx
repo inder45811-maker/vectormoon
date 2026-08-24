@@ -5,7 +5,7 @@ import DeviceFrame from '../components/ui/DeviceFrame'
 import OrbitRing from '../components/ui/OrbitRing'
 import Testimonials from '../components/Testimonials'
 import { projects } from '../data/projects'
-import { plans } from '../data/pricing'
+import { plans, careDisclosure } from '../data/pricing'
 import { businessJsonLd, pageSeo } from '../data/seo'
 
 const featuredClient =
@@ -214,9 +214,10 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-sm text-text-secondary">{careDisclosure}</p>
           <Link
             to="/pricing"
-            className="mt-10 inline-flex rounded-full border border-electric/50 px-8 py-3 text-sm font-medium text-white transition hover:bg-electric/10"
+            className="mt-4 inline-flex rounded-full border border-electric/50 px-8 py-3 text-sm font-medium text-white transition hover:bg-electric/10"
           >
             Full pricing details
           </Link>

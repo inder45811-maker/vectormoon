@@ -45,3 +45,54 @@ export const plans = [
     highlighted: false,
   },
 ]
+
+export const carePlans = [
+  {
+    name: 'Protect',
+    price: '£99',
+    period: '/month',
+    for: 'For Core Build clients',
+    blurb: 'The site keeps working and I never think about it',
+    features: [
+      'Managed hosting + backups',
+      'Uptime & speed monitoring',
+      'Security & dependency updates',
+      '30 min edits per month',
+      'Monthly health report',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Growth Care',
+    price: '£299',
+    period: '/month',
+    for: 'For Growth Engine clients',
+    blurb: 'Keeps the phone ringing',
+    features: [
+      'Everything in Protect',
+      'Ongoing local SEO (GBP, citations, keyword tracking)',
+      'Review funnel — ask & reply',
+      '1 content piece per month',
+      'Monthly performance report with ROI number',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'Scale Care',
+    price: '£499',
+    period: '/month',
+    for: 'For Enterprise Scale clients',
+    blurb: 'Runs without me',
+    features: [
+      'Everything in Growth Care',
+      'Content engine (2–3 posts/mo)',
+      'Monthly CRO sprint',
+      'Quarterly strategy + report',
+      'Same-day priority SLA',
+    ],
+    highlighted: false,
+  },
+]
+
+export const careDisclosure =
+  'Keep it working after launch — care plans from £99/mo, cancel anytime.'
