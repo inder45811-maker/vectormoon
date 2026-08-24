@@ -47,7 +47,7 @@ export const projects = [
     title: 'Making Marks Tattoo Co',
     tagline: 'Black & grey studio site with multi-page local SEO',
     description:
-      'A multi-page studio presence for a Leamington Spa tattoo shop — artists, aftercare, FAQ, and visit pages with structured data so both Google and AI systems can understand the business.',
+      'A seven-page Astro site for a Royal Leamington Spa tattoo studio — artist profiles for Connor, Kev and Liv, a full aftercare guide, FAQ, and a Fresha booking flow. Every page carries structured data, led by a TattooParlor schema with address, hours and service area, so Google and AI search understand the studio.',
     tag: 'Multi-page',
     location: 'Leamington Spa',
     industry: 'Tattoo studio',
@@ -57,9 +57,9 @@ export const projects = [
     monogram: 'MM',
     accent: '#7B61FF',
     results: [
-      'Dedicated routes for SEO & GEO discoverability',
-      'FAQ + visit schema for local intent',
-      'Editorial gallery-ready layout',
+      'Seven dedicated pages, each with SEO + JSON-LD schema',
+      'TattooParlor schema — address, hours & service area',
+      'Fresha booking + Instagram links (no fragile feed embed)',
     ],
     stack: ['Astro', 'JSON-LD', 'Sitemap', 'Static HTML'],
   },
