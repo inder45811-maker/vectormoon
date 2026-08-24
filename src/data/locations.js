@@ -110,6 +110,60 @@ export const locations = [
     ],
     faqs: townFaqs('Leamington Spa', 'Warwickshire'),
   },
+  {
+    slug: 'kenilworth',
+    town: 'Kenilworth',
+    county: 'Warwickshire',
+    title: 'Web Design Kenilworth | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Kenilworth, Warwickshire. VectorMoon builds premium, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Kenilworth',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Kenilworth.',
+    subtitle:
+      'Modern multi-page sites for Kenilworth and Warwickshire businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Kenilworth punches above its weight for a town its size — castle tourism, a moneyed commuter base, and an independent high street where customers expect polish before they pick up the phone. A dated or DIY site quietly costs you that first impression, and with bigger towns nearby there's always a competitor one search away.",
+      'VectorMoon builds premium, fast, SEO-ready sites for Kenilworth businesses — from £799, with multi-page architecture that ranks on Google and AI search, and real portfolio proof. No template lock-in, no Birmingham agency overhead.',
+    ],
+    faqs: townFaqs('Kenilworth', 'Warwickshire'),
+  },
+  {
+    slug: 'rugby',
+    town: 'Rugby',
+    county: 'Warwickshire',
+    title: 'Web Design Rugby | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Rugby, Warwickshire. VectorMoon builds modern, mobile-first, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Rugby',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Rugby.',
+    subtitle:
+      'Modern multi-page sites for Rugby and Warwickshire businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Rugby is growing fast — new homes, new commuters, and a high street of trades and independents that don't all show up online yet. The people moving in don't check the local paper first; they search on their phone, and if you're not there, the job goes to whoever is.",
+      'VectorMoon builds modern, mobile-first, multi-page sites for Rugby businesses that rank locally, load fast, and turn searches into enquiries — with clear pricing from £799 and real portfolio proof.',
+    ],
+    faqs: townFaqs('Rugby', 'Warwickshire'),
+  },
+  {
+    slug: 'solihull',
+    town: 'Solihull',
+    county: 'West Midlands',
+    title: 'Web Design Solihull | Local Website Designer — VectorMoon',
+    description:
+      'Web design in Solihull, West Midlands. VectorMoon builds high-end, fast, SEO-ready websites for local businesses. Packages from £799. Free strategy call.',
+    eyebrow: 'Web design Solihull',
+    heroTitle: 'Your local website studio',
+    highlight: 'in Solihull.',
+    subtitle:
+      'Modern multi-page sites for Solihull and West Midlands businesses — built to rank, convert, and look expensive.',
+    intro: [
+      "Solihull is an affluent, professional market — high-end retail, legal and financial services, and a customer base that expects a website to look as polished as the business. Yet plenty of local firms still pay Birmingham-agency prices for a site that works no harder than a brochure.",
+      'VectorMoon gives Solihull businesses high-end custom design without the big-city overhead — multi-page sites from £799 that rank on Google and AI search, real portfolio proof, and a local studio that actually answers the phone.',
+    ],
+    faqs: townFaqs('Solihull', 'West Midlands'),
+  },
 ]
 
 export function getLocation(slug) {
