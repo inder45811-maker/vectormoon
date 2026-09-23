@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import PageHero from '../components/ui/PageHero'
+import BorderBeam from '../components/ui/BorderBeam'
 import { plans, carePlans, careDisclosure } from '../data/pricing'
 import { pageSeo } from '../data/seo'
 
@@ -43,14 +44,15 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl border p-8 ${
+              className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-300 ${
                 plan.highlighted
                   ? 'border-cyan/40 bg-satellite shadow-[0_0_50px_rgba(0,198,255,0.12)]'
                   : 'border-white/10 bg-nebula/70'
               }`}
             >
+              {plan.highlighted && <BorderBeam duration={7} />}
               {plan.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-cyan px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-void">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 rounded-full bg-cyan px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-void shadow-[0_2px_12px_rgba(0,198,255,0.5)]">
                   Recommended
                 </span>
               )}

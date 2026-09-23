@@ -1,14 +1,17 @@
-/** Browser chrome frame for portfolio screenshots */
+import TiltCard from './TiltCard'
+
+/** Browser chrome frame for portfolio screenshots with 3D tilt */
 export default function DeviceFrame({
   src,
   alt,
   className = '',
   loading = 'lazy',
   fetchPriority = 'auto',
+  tilt = true,
 }) {
-  return (
+  const content = (
     <div
-      className={`device-frame group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e18] shadow-[0_40px_100px_rgba(0,0,0,0.55)] ${className}`}
+      className={`device-frame group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e18] shadow-[0_40px_100px_rgba(0,0,0,0.55)] transition-shadow duration-500 hover:shadow-[0_45px_120px_rgba(0,198,255,0.18)] ${className}`}
     >
       <div className="flex items-center gap-2 border-b border-white/8 bg-white/[0.03] px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
@@ -36,5 +39,13 @@ export default function DeviceFrame({
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent opacity-60" />
       </div>
     </div>
+  )
+
+  if (!tilt) return content
+
+  return (
+    <TiltCard maxTilt={8} glare={true}>
+      {content}
+    </TiltCard>
   )
 }

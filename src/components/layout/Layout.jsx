@@ -1,8 +1,13 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import Starfield from '../ui/Starfield'
+import CosmicCanvas from '../ui/CosmicCanvas'
+import ScrollSpine from '../ui/ScrollSpine'
+import PageTransition from './PageTransition'
+import CustomCursor from '../ui/CustomCursor'
+import AgencyHud from '../ui/AgencyHud'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -13,13 +18,20 @@ export default function Layout() {
 
   return (
     <div className="relative min-h-screen">
+      <CustomCursor />
       <div className="noise-overlay" aria-hidden />
-      <Starfield count={48} className="fixed opacity-40" />
+      <CosmicCanvas />
+      <ScrollSpine />
       <Navbar />
       <main className="relative z-10">
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <PageTransition key={pathname}>
+            <Outlet />
+          </PageTransition>
+        </AnimatePresence>
       </main>
       <Footer />
+      <AgencyHud />
     </div>
   )
 }

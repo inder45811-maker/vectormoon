@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
+import AudioToggle from '../ui/AudioToggle'
+
 const links = [
   { to: '/work', label: 'Work' },
   { to: '/services', label: 'Services' },
@@ -42,7 +44,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -56,6 +58,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <AudioToggle />
           <Link
             to="/contact"
             className="rounded-full bg-cyan px-5 py-2.5 text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
@@ -64,12 +67,14 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="md:hidden text-white p-2"
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-        >
+        <div className="flex items-center gap-2 md:hidden">
+          <AudioToggle />
+          <button
+            type="button"
+            className="text-white p-2"
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+          >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             {open ? (
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
@@ -80,7 +85,8 @@ export default function Navbar() {
             )}
           </svg>
         </button>
-      </nav>
+      </div>
+    </nav>
 
       <AnimatePresence>
         {open && (
