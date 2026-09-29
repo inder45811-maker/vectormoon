@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { trackContactClick } from '../../utils/analytics'
 
 const nav = [
   { to: '/work', label: 'Work' },
@@ -60,12 +61,20 @@ export default function Footer() {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-text-secondary">Contact</p>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>
-                <a href="mailto:indi@vectormoon.co.uk" className="hover:text-cyan">
+                <a
+                  href="mailto:indi@vectormoon.co.uk"
+                  onClick={() => trackContactClick({ type: 'email', destination: 'indi@vectormoon.co.uk' })}
+                  className="hover:text-cyan"
+                >
                   indi@vectormoon.co.uk
                 </a>
               </li>
               <li>
-                <a href="tel:07341555160" className="hover:text-cyan">
+                <a
+                  href="tel:07341555160"
+                  onClick={() => trackContactClick({ type: 'phone', destination: '07341555160' })}
+                  className="hover:text-cyan"
+                >
                   07341 555160
                 </a>
               </li>
@@ -79,6 +88,19 @@ export default function Footer() {
                   @vectormoonstudios
                 </a>
               </li>
+              {import.meta.env?.VITE_GBP_URL && (
+                <li>
+                  <a
+                    href={import.meta.env.VITE_GBP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-cyan hover:underline"
+                  >
+                    <span>Google Business Profile</span>
+                    <span>↗</span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

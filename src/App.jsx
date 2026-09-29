@@ -11,8 +11,16 @@ import { locations } from './data/locations'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import { initGA } from './utils/analytics'
+import { usePageTracking } from './hooks/usePageTracking'
 
 export default function App() {
+  usePageTracking()
+
+  useEffect(() => {
+    initGA()
+  }, [])
+
   useEffect(() => {
     const prefersReduced =
       typeof window !== 'undefined' &&

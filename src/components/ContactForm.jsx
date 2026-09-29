@@ -1,12 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { trackLead, trackContactClick } from '../utils/analytics'
 
 const CONTACT_EMAIL = 'indi@vectormoon.co.uk'
 const CONTACT_PHONE = '07341555160'
 
 export default function ContactForm() {
+  const [searchParams] = useSearchParams()
+  const planParam = searchParams.get('plan')
+  const totalParam = searchParams.get('total')
+
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle')
+
+  useEffect(() => {
+    if (planParam || totalParam) {
+      const planName = planParam ? planParam.replace(/_/g, ' ').toUpperCase() : 'Custom'
+      const priceText = totalParam ? ` (£${totalParam})` : ''
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message || `Hi Indi,\n\nI would like to discuss the ${planName} package${priceText}. My project requirements are: `,
+      }))
+    }
+  }, [planParam, totalParam])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -19,12 +36,23 @@ export default function ContactForm() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          selected_plan: planParam || 'Standard Contact',
+          estimated_value: totalParam ? `£${totalParam}` : 'Not specified',
           _subject: `New enquiry from ${formData.name} — VectorMoon`,
           _template: 'table',
         }),
       })
       if (!res.ok) throw new Error('fail')
       setStatus('sent')
+
+      // Track key conversion event in GA4
+      trackLead({
+        formName: 'contact_page_form',
+        email: formData.email,
+        plan: planParam || 'general',
+        value: totalParam ? Number(totalParam) : 0,
+      })
+
       setFormData({ name: '', email: '', message: '' })
       setTimeout(() => setStatus('idle'), 5000)
     } catch {
@@ -44,10 +72,18 @@ export default function ContactForm() {
           Free 15-minute strategy call. Coventry &amp; UK-wide. Custom proposal within 24 hours.
         </p>
         <div className="space-y-4 text-sm">
-          <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 text-text-secondary hover:text-cyan">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            onClick={() => trackContactClick({ type: 'email', destination: CONTACT_EMAIL })}
+            className="flex items-center gap-3 text-text-secondary hover:text-cyan"
+          >
             <span className="text-cyan">✉</span> {CONTACT_EMAIL}
           </a>
-          <a href={`tel:${CONTACT_PHONE}`} className="flex items-center gap-3 text-text-secondary hover:text-cyan">
+          <a
+            href={`tel:${CONTACT_PHONE}`}
+            onClick={() => trackContactClick({ type: 'phone', destination: CONTACT_PHONE })}
+            className="flex items-center gap-3 text-text-secondary hover:text-cyan"
+          >
             <span className="text-cyan">☎</span> {CONTACT_PHONE}
           </a>
           <p className="text-text-secondary">

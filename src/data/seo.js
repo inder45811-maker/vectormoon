@@ -51,7 +51,59 @@ export const businessJsonLd = {
     addressRegion: 'West Midlands',
     addressCountry: 'GB',
   },
-  sameAs: ['https://www.instagram.com/vectormoonstudios/'],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 52.4068,
+    longitude: -1.5197,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  ],
+  sameAs: [
+    'https://www.instagram.com/vectormoonstudios/',
+    ...(import.meta.env?.VITE_GBP_URL ? [import.meta.env.VITE_GBP_URL] : []),
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Web Design & Digital Growth Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Core Build Website',
+          description: 'Custom high-end bespoke architecture engineered for local speed and trust.',
+        },
+        price: '799',
+        priceCurrency: 'GBP',
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Growth Conversion Engine',
+          description: 'Multi-page GEO capture system designed to rank across surrounding towns.',
+        },
+        price: '1499',
+        priceCurrency: 'GBP',
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Bespoke Enterprise & E-Commerce',
+          description: 'Custom headless architecture, online store, or complex web applications with 3D product visualizers.',
+        },
+        price: '2799',
+        priceCurrency: 'GBP',
+      },
+    ],
+  },
 }
 
 export { SITE }

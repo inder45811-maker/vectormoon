@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Counter from './Counter'
 import MagneticButton from './MagneticButton'
 import { playHapticClick, playChime } from '../../utils/audio'
+import { trackCalculatorEngagement, trackCtaClick } from '../../utils/analytics'
 
 const TIERS = [
   {
@@ -196,6 +197,19 @@ export default function ScopeCalculator() {
         <MagneticButton strength={15}>
           <Link
             to={`/contact?plan=${activeTier.id}&scope=${selectedAddons.join(',')}&total=${totalPrice}`}
+            onClick={() => {
+              trackCalculatorEngagement({
+                type: 'scope_calculator',
+                plan: activeTier.id,
+                addons: selectedAddons,
+                total: totalPrice,
+              })
+              trackCtaClick({
+                text: `Lock In This Scope (£${totalPrice})`,
+                destination: `/contact?plan=${activeTier.id}&scope=${selectedAddons.join(',')}&total=${totalPrice}`,
+                section: 'scope_calculator',
+              })
+            }}
             className="inline-flex items-center gap-2 rounded-full bg-cyan px-8 py-3.5 text-sm font-semibold text-void shadow-[0_0_25px_rgba(0,198,255,0.4)] transition hover:brightness-110"
             data-cursor="click"
           >

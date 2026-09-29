@@ -11,6 +11,7 @@ export default function Seo({
   jsonLd,
   geoRegion = 'GB-COV',
   geoPlacename = 'Coventry',
+  googleVerification = import.meta.env.VITE_GSC_VERIFICATION,
 }) {
   return (
     <>
@@ -21,6 +22,9 @@ export default function Seo({
       <meta name="geo.region" content={geoRegion} />
       <meta name="geo.placename" content={geoPlacename} />
       <meta name="author" content="VectorMoon" />
+      {googleVerification ? (
+        <meta name="google-site-verification" content={googleVerification} />
+      ) : null}
 
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="VectorMoon" />
