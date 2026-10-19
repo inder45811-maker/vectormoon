@@ -92,10 +92,20 @@ for (const route of routes) {
   const page = await browser.newPage()
   const url = `${base}${route === '/' ? '/' : route}`
   console.log('Prerender', route)
+  await page.addInitScript(() => {
+    window.__VM_PRERENDER__ = true
+  })
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 })
   // Wait for route-specific H1 (confirms React painted the right page)
   await page.waitForSelector('h1', { timeout: 15000 })
-  await page.waitForTimeout(500)
+  // Homepage hero uses a scramble animation — wait until final copy is stable for SEO HTML
+  if (route === '/') {
+    await page.waitForFunction(
+      () => document.querySelector('h1')?.textContent?.includes('Websites engineered'),
+      { timeout: 15000 },
+    )
+  }
+  await page.waitForTimeout(300)
 
   let html = await page.content()
   html = keepLast(html, /<title>[\s\S]*?<\/title>/gi)
