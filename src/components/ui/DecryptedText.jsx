@@ -3,6 +3,18 @@ import { useInView } from 'framer-motion'
 
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
 
+function shouldSkipScramble() {
+  if (typeof window === 'undefined') return true
+  if (window.__VM_PRERENDER__) return true
+  if (navigator.webdriver) return true
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true
+  } catch {
+    /* ignore */
+  }
+  return false
+}
+
 export default function DecryptedText({
   text,
   speed = 30,
@@ -15,11 +27,10 @@ export default function DecryptedText({
   animateOn = 'view',
   ...props
 }) {
+  const skip = shouldSkipScramble()
   const [displayText, setDisplayText] = useState(text)
-  const [isHovering, setIsHovering] = useState(false)
   const [isScrambling, setIsScrambling] = useState(false)
-  const [revealedIndices, setRevealedIndices] = useState(new Set())
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const [hasAnimated, setHasAnimated] = useState(skip)
 
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.3 })
@@ -39,15 +50,8 @@ export default function DecryptedText({
       .join('')
   }
 
-  useEffect(() => {
-    if (animateOn === 'view' && isInView && !hasAnimated) {
-      triggerAnimation()
-      setHasAnimated(true)
-    }
-  }, [isInView, animateOn, hasAnimated])
-
   const triggerAnimation = () => {
-    if (isScrambling) return
+    if (skip || isScrambling) return
     setIsScrambling(true)
 
     let iteration = 0
@@ -60,12 +64,10 @@ export default function DecryptedText({
         } else {
           currentRevealed.add(currentRevealed.size)
         }
-        setRevealedIndices(new Set(currentRevealed))
       } else {
         iteration++
         if (iteration >= maxIterations) {
           text.split('').forEach((_, i) => currentRevealed.add(i))
-          setRevealedIndices(new Set(currentRevealed))
         }
       }
 
@@ -79,16 +81,32 @@ export default function DecryptedText({
     }, speed)
   }
 
+  useEffect(() => {
+    if (skip) {
+      setDisplayText(text)
+      return
+    }
+    if (animateOn === 'view' && isInView && !hasAnimated) {
+      triggerAnimation()
+      setHasAnimated(true)
+    }
+  }, [isInView, animateOn, hasAnimated, skip, text])
+
   return (
     <span
       ref={containerRef}
       className={`inline-block ${parentClassName}`}
+      aria-label={text}
       onMouseEnter={() => {
-        if (animateOn === 'hover') triggerAnimation()
+        if (!skip && animateOn === 'hover') triggerAnimation()
       }}
       {...props}
     >
-      <span className={className}>{displayText}</span>
+      {/* Crawlers / a11y always get the real string; visual scramble is aria-hidden while running */}
+      <span className="sr-only">{text}</span>
+      <span className={className} aria-hidden={displayText !== text ? 'true' : undefined}>
+        {displayText}
+      </span>
     </span>
   )
 }
