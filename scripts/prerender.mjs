@@ -85,7 +85,7 @@ function keepLast(html, pattern) {
 }
 
 const { server, port } = await startStaticServer()
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ headless: true, args: ['--no-sandbox', '--disable-dev-shm-usage'] })
 const base = `http://127.0.0.1:${port}`
 
 for (const route of routes) {
@@ -95,7 +95,8 @@ for (const route of routes) {
   await page.addInitScript(() => {
     window.__VM_PRERENDER__ = true
   })
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 })
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 })
+  await page.waitForLoadState('load', { timeout: 60000 }).catch(() => {})
   // Wait for route-specific H1 (confirms React painted the right page)
   await page.waitForSelector('h1', { timeout: 15000 })
   // Homepage hero uses a scramble animation — wait until final copy is stable for SEO HTML
@@ -103,7 +104,7 @@ for (const route of routes) {
     await page.waitForFunction(
       () => document.querySelector('h1')?.textContent?.includes('Websites engineered'),
       { timeout: 15000 },
-    )
+    ).catch(() => console.warn('  homepage hero text wait timed out; continuing'))
   }
   await page.waitForTimeout(300)
 
