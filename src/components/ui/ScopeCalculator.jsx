@@ -38,7 +38,7 @@ const ADDONS = [
   {
     id: 'geo_ai',
     name: 'AI Search & Citation Optimization',
-    desc: 'Structured JSON-LD schema so ChatGPT, Perplexity, and Apple Intelligence cite you as the #1 local authority.',
+    desc: 'Extra structured data (JSON-LD), FAQ content and entity markup so Google and AI search tools can read accurate facts about your business. No ranking can be guaranteed.',
     price: 250,
   },
   {
@@ -50,7 +50,7 @@ const ADDONS = [
   {
     id: 'sprint',
     name: 'VIP 7-Day Sprint Delivery',
-    desc: 'Priority queue slot with guaranteed complete production delivery in 7 business days.',
+    desc: 'Priority slot aiming for delivery in 7 working days, once your content and feedback are ready.',
     price: 300,
   },
 ]

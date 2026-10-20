@@ -10,7 +10,7 @@ export default function WorkDetail() {
   if (!p) return <Navigate to="/work" replace />
 
   const seo = pageSeo({
-    title: `${p.title} — Client Project | VectorMoon`,
+    title: `${p.title} | Website Project | VectorMoon`,
     description: p.description,
     path: `/work/${p.slug}`,
     type: 'article',
@@ -40,9 +40,13 @@ export default function WorkDetail() {
             <span className="rounded-full bg-cyan/10 px-3 py-1 text-xs text-cyan">{p.tag}</span>
             <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-text-secondary">{p.location}</span>
             <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-text-secondary">{p.industry}</span>
+            {p.status && (
+              <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80">{p.status}</span>
+            )}
           </div>
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">{p.title}</h1>
           <p className="mt-4 max-w-2xl text-lg text-text-secondary">{p.tagline}</p>
+          {p.note && <p className="mt-2 max-w-2xl text-sm text-white/70">{p.note}</p>}
 
           <div className="mt-12">
             <DeviceFrame src={p.image} alt={`${p.title} desktop screenshot`} />
@@ -90,7 +94,7 @@ export default function WorkDetail() {
               rel="noopener noreferrer"
               className="rounded-full bg-cyan px-7 py-3 text-sm font-semibold text-void"
             >
-              Visit live site ↗
+              {p.linkLabel || 'Visit site'} ↗
             </a>
             <Link
               to="/contact"

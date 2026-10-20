@@ -65,7 +65,7 @@ export default function AgencyHud() {
         {/* Live System Indicator */}
         <div className="flex items-center gap-1.5 border-r border-white/10 pr-3">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-white/70">60 FPS</span>
+          <span className="text-white/70">COVENTRY</span>
         </div>
 
         {/* London / Coventry Clock */}

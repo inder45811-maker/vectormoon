@@ -32,7 +32,7 @@ export default function Home() {
   const seo = pageSeo({
     title: 'VectorMoon | High-End Web Design Coventry & West Midlands',
     description:
-      'VectorMoon is a Coventry web design studio building modern, high-converting websites for UK local businesses. Real client work. Packages from £799. Free strategy call.',
+      'VectorMoon is a Coventry web design studio building modern, high-converting websites for UK local businesses. Fixed-price packages from £799. Free strategy call.',
     path: '/',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -133,8 +133,8 @@ export default function Home() {
               </div>
               <span className="text-white/20">|</span>
               <div className="flex items-center gap-2">
-                <span className="text-cyan font-mono text-[11px]">CLIENTS</span>
-                <span className="text-base font-bold text-white font-mono">100% 5★</span>
+                <span className="text-cyan font-mono text-[11px]">PRICE</span>
+                <span className="text-base font-bold text-white font-mono">FIXED UP FRONT</span>
               </div>
             </div>
           </motion.div>

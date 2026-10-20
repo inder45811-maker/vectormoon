@@ -29,14 +29,14 @@ export default function DeviceLab() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-cyan animate-pulse" />
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-cyan">
-              Interactive Production Device Lab
+              Project Gallery
             </p>
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl text-white">
-            Real clients. <span className="gradient-text">Live responsive builds.</span>
+            Recent builds. <span className="gradient-text">Desktop and mobile.</span>
           </h2>
           <p className="mt-3 text-text-secondary max-w-xl text-sm md:text-base">
-            Every site is engineered from scratch for high conversion, search visibility, and flawless responsive rendering.
+            Each site is built from scratch rather than from a theme. Screenshots are of the builds; each card says where the site is hosted.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export default function DeviceLab() {
                     <span className="text-cyan">🔒</span>
                     <span>{activeProject.url.replace('https://', '')}</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400 font-mono">100/100 SPEED</span>
+                  <span className="text-[10px] text-white/40 font-mono">{activeProject.status}</span>
                 </div>
                 {/* Screenshot Image */}
                 <div className="aspect-[16/10] w-full overflow-hidden bg-void">
@@ -171,8 +171,8 @@ export default function DeviceLab() {
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-0.5 font-mono text-xs text-text-secondary">
               {activeProject.location}
             </span>
-            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 font-mono text-xs text-emerald-400">
-              VERIFIED LIVE CLIENT
+            <span className="rounded-full border border-white/15 bg-white/5 px-3 py-0.5 font-mono text-xs text-white/80">
+              {activeProject.status}
             </span>
           </div>
 
@@ -182,6 +182,9 @@ export default function DeviceLab() {
           <p className="mt-2 text-base text-text-secondary leading-relaxed">
             {activeProject.tagline}
           </p>
+          {activeProject.note && (
+            <p className="mt-2 text-xs text-white/70 leading-relaxed">{activeProject.note}</p>
+          )}
           <p className="mt-3 text-sm text-text-secondary/80 leading-relaxed">
             {activeProject.description}
           </p>
@@ -223,7 +226,7 @@ export default function DeviceLab() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-6 py-3 text-xs font-medium text-white transition hover:border-cyan/50 hover:bg-white/5"
             >
-              <span>Visit Live Production Site</span>
+              <span>{activeProject.linkLabel}</span>
               <span className="text-cyan">↗</span>
             </a>
           </div>

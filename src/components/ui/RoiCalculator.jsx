@@ -1,4 +1,5 @@
 import { useState, useId } from 'react'
+import { plans } from '../../data/pricing'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Counter from './Counter'
@@ -9,10 +10,13 @@ export default function RoiCalculator() {
   const visitorsId = useId()
   const ticketId = useId()
   const convId = useId()
+  const liftId = useId()
 
   const [visitors, setVisitors] = useState(2500)
   const [ticket, setTicket] = useState(280)
   const [currConv, setCurrConv] = useState(1.2) // 1.2%
+  // Your own what-if assumption, not a promise or an average from our clients.
+  const [liftPct, setLiftPct] = useState(20)
 
   const handleVisitorsChange = (e) => {
     setVisitors(Number(e.target.value))
@@ -33,17 +37,18 @@ export default function RoiCalculator() {
   const baseMonthlyOrders = Math.round(visitors * (currConv / 100))
   const baseMonthlyRevenue = baseMonthlyOrders * ticket
 
-  // VectorMoon speed & UX uplift: +60% conservative average
-  const newConv = currConv * 1.6
+  // What-if only: the improvement is chosen by the visitor, not claimed by us.
+  const newConv = currConv * (1 + liftPct / 100)
   const newMonthlyOrders = Math.round(visitors * (newConv / 100))
   const newMonthlyRevenue = newMonthlyOrders * ticket
 
   const monthlyLift = Math.max(0, newMonthlyRevenue - baseMonthlyRevenue)
   const annualLift = monthlyLift * 12
 
-  // Payback days based on typical £1,399 package
-  const estimatedPackageCost = 1399
-  const paybackDays = monthlyLift > 0 ? Math.max(7, Math.round((estimatedPackageCost / monthlyLift) * 30)) : 45
+  // Payback based on the Growth package price shown on the pricing page
+  const growthPlan = plans.find((p) => p.highlighted) || plans[0]
+  const estimatedPackageCost = Number(String(growthPlan.price).replace(/[^0-9]/g, '')) || 0
+  const paybackDays = monthlyLift > 0 ? Math.round((estimatedPackageCost / monthlyLift) * 30) : null
 
   return (
     <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-3xl border border-white/10 bg-nebula/60 p-6 md:p-10 shadow-[0_30px_90px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
@@ -53,19 +58,19 @@ export default function RoiCalculator() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-cyan">
-              Interactive ROI &amp; Revenue Projection Engine
+              What-if Revenue Calculator
             </span>
           </div>
           <h3 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-white">
-            Calculate your revenue lift from <span className="gradient-text">sub-second speed.</span>
+            What would more enquiries <span className="gradient-text">be worth to you?</span>
           </h3>
           <p className="mt-1 text-xs md:text-sm text-text-secondary">
-            Google studies confirm that every 0.1s reduction in mobile page load improves conversion by up to 8.4%.
+            Plug in your own numbers and your own assumption. This is an illustration, not a forecast or a guarantee.
           </p>
         </div>
 
         <div className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 font-mono text-xs text-emerald-400 self-start md:self-auto">
-          CONSERVATIVE ESTIMATE (+60% LIFT)
+          ILLUSTRATION ONLY
         </div>
       </div>
 
@@ -152,16 +157,46 @@ export default function RoiCalculator() {
               <span>5.0% (High)</span>
             </div>
           </div>
+
+          {/* Slider 4: What-if improvement (visitor's assumption) */}
+          <div>
+            <div className="flex items-center justify-between text-xs font-mono">
+              <label htmlFor={liftId} className="text-text-secondary uppercase tracking-wider">
+                What if enquiries improved by:
+              </label>
+              <span className="text-lg font-bold text-white font-mono">
+                {liftPct}% <span className="text-xs text-cyan">your assumption</span>
+              </span>
+            </div>
+            <input
+              id={liftId}
+              type="range"
+              min="5"
+              max="100"
+              step="5"
+              value={liftPct}
+              onChange={(e) => {
+                setLiftPct(Number(e.target.value))
+                playHapticClick()
+              }}
+              className="mt-2 w-full accent-[#00C6FF] cursor-pointer"
+            />
+            <div className="flex justify-between text-[10px] font-mono text-white/30">
+              <span>5%</span>
+              <span>50%</span>
+              <span>100%</span>
+            </div>
+          </div>
         </div>
 
         {/* Dynamic Projection Results Card */}
         <div className="relative rounded-2xl border border-cyan/30 bg-white/[0.03] p-7 md:p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(0,198,255,0.1)]">
           <div className="font-mono text-xs uppercase tracking-widest text-cyan">
-            PROJECTED FINANCIAL IMPACT:
+            IF YOUR ASSUMPTION HELD:
           </div>
 
           <div className="mt-4">
-            <span className="text-xs text-text-secondary">Estimated Net Monthly Revenue Lift:</span>
+            <span className="text-xs text-text-secondary">Extra revenue per month:</span>
             <div className="flex items-baseline gap-2 mt-1">
               <span className="text-4xl md:text-5xl font-bold font-mono text-white tracking-tight">
                 +£{monthlyLift.toLocaleString()}
@@ -179,15 +214,15 @@ export default function RoiCalculator() {
             </div>
 
             <div>
-              <span className="text-text-secondary">ESTIMATED PAYBACK:</span>
+              <span className="text-text-secondary">PAYS BACK A {growthPlan.price} BUILD IN:</span>
               <div className="text-xl font-bold text-cyan mt-1">
-                ~{paybackDays} Days
+                {paybackDays === null ? '—' : `~${paybackDays} days`}
               </div>
             </div>
           </div>
 
           <p className="mt-5 text-[11px] text-text-secondary leading-relaxed">
-            By eliminating mobile load latency and giving your brand £50k design credibility, your website turns existing traffic into high-margin enquiries.
+            Simple arithmetic on the numbers above: visitors × conversion rate × customer value, before and after your chosen improvement. Real results depend on your market, offer and traffic.
           </p>
 
           <div className="mt-6">
@@ -196,7 +231,7 @@ export default function RoiCalculator() {
                 to="/contact"
                 className="block w-full text-center rounded-full bg-cyan px-7 py-3.5 text-xs font-semibold text-void shadow-[0_0_25px_rgba(0,198,255,0.5)] transition hover:brightness-110"
               >
-                Claim Your Custom Growth Architecture →
+                Talk it through on a free call →
               </Link>
             </MagneticButton>
           </div>

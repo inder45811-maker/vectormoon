@@ -26,8 +26,8 @@ const PHASES = [
     title: 'Bespoke UI, 3D Canvas & Typography',
     summary: 'Zero cookie-cutter templates. We design custom interactive interfaces with high-contrast luxury aesthetics, 3D spatial accents, and frictionless mobile navigation.',
     deliverables: [
-      'Custom interactive Figma prototypes (Desktop + Mobile)',
-      '3D assets, procedural canvas elements, and micro-interactions',
+      'Design mock-ups for desktop and mobile for you to review',
+      'Visual accents and micro-interactions where they help (optional)',
       'Bespoke typography hierarchy and dark-mode color tokens',
       'Conversion-centered copywriting polish',
     ],
@@ -40,12 +40,12 @@ const PHASES = [
     code: 'VELOCITY COMPILATION',
     days: 'DAYS 9 — 12',
     title: 'Zero-Bloat Production Code',
-    summary: 'We handwrite clean, modular React and Vite components compiled to lean bytecode. No bloated themes, no fragile plugins, 100% Core Web Vitals compliance.',
+    summary: 'We hand-write clean, modular React and Vite components. No bloated themes and no fragile plugins, and we test speed on mobile as we build.',
     deliverables: [
       'Handwritten React + Vite component architecture',
-      'Three.js / Web Audio integration with 60 FPS GPU budgeting',
-      'Sub-second asset compression (WebP / AVIF)',
-      'Cross-device responsive stress testing on real hardware',
+      'Compressed, correctly sized images (WebP where supported)',
+      'Mobile-first layouts with tap-to-call and an enquiry form',
+      'Checked at phone, tablet and desktop sizes before you see it',
     ],
     milestone: 'STAGING URL DELIVERED FOR TESTING',
     accent: '#7B61FF',
@@ -55,13 +55,13 @@ const PHASES = [
     phase: '04',
     code: 'ORBITAL LAUNCH',
     days: 'DAYS 13 — 14',
-    title: 'Edge CDN Propagation & Search Indexing',
-    summary: 'We deploy your site to global Edge CDNs, wire Google Search Console, submit XML sitemaps, and guarantee 100/100 Lighthouse performance.',
+    title: 'Launch, Search Console & Handover',
+    summary: 'We put your site live on fast static hosting, connect your domain, set up Google Search Console, submit your sitemap, and send you the real PageSpeed results.',
     deliverables: [
-      'Cloudflare Edge CDN deployment with sub-30ms TTFB',
-      'Deep JSON-LD Schema markup for Google Rich Snippets & AI SGE',
+      'Static hosting with HTTPS on your own domain',
+      'Schema.org JSON-LD markup for your business, services and FAQs',
       'Google Analytics 4 & Search Console configuration',
-      '100/100 Core Web Vitals Warranty & 30-day post-launch support',
+      'Mobile PageSpeed report at launch & 30 days of post-launch support',
     ],
     milestone: 'PUBLIC PRODUCTION LAUNCH & HANDOFF',
     accent: '#00E676',
@@ -183,7 +183,7 @@ export default function ProcessFlightPlan() {
               </p>
               <div className="mt-6 flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 font-mono text-xs text-emerald-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>100% FIXED-PRICE WARRANTY</span>
+                <span>FIXED PRICE, AGREED UP FRONT</span>
               </div>
             </div>
           </div>
