@@ -96,7 +96,6 @@ export default function DecryptedText({
     <span
       ref={containerRef}
       className={`inline-block ${parentClassName}`}
-      aria-label={text}
       onMouseEnter={() => {
         if (!skip && animateOn === 'hover') triggerAnimation()
       }}
@@ -104,7 +103,7 @@ export default function DecryptedText({
     >
       {/* Crawlers / a11y always get the real string; visual scramble is aria-hidden while running */}
       <span className="sr-only">{text}</span>
-      <span className={className} aria-hidden={displayText !== text ? 'true' : undefined}>
+      <span className={className} aria-hidden="true">
         {displayText}
       </span>
     </span>

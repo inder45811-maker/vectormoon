@@ -3,6 +3,7 @@ import Seo from '../components/Seo'
 import PageHero from '../components/ui/PageHero'
 import BorderBeam from '../components/ui/BorderBeam'
 import { plans, carePlans, careDisclosure } from '../data/pricing'
+import { businessJsonLd } from '../data/seo'
 import { pageSeo } from '../data/seo'
 
 export default function Pricing() {
@@ -13,18 +14,12 @@ export default function Pricing() {
     path: '/pricing',
     jsonLd: {
       '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: 'VectorMoon Website Packages',
-      description: 'Custom website design packages for UK small businesses',
-      brand: { '@type': 'Brand', name: 'VectorMoon' },
-      offers: plans.map((p) => ({
-        '@type': 'Offer',
-        name: p.name,
-        description: p.blurb,
-        priceCurrency: 'GBP',
-        price: p.price.replace(/[£+,]/g, '').replace(/\+.*/, ''),
-        availability: 'https://schema.org/InStock',
-      })),
+      '@type': 'Service',
+      name: 'VectorMoon website design packages',
+      serviceType: 'Web design and development',
+      provider: { '@id': businessJsonLd['@id'], '@type': 'ProfessionalService', name: 'VectorMoon' },
+      areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      hasOfferCatalog: businessJsonLd.hasOfferCatalog,
     },
   })
 
@@ -73,14 +68,14 @@ export default function Pricing() {
                 ))}
               </ul>
               <Link
-                to="/contact"
+                to={`/contact/?plan=${plan.id}#enquiry`}
                 className={`mt-8 block rounded-full py-3 text-center text-sm font-semibold transition ${
                   plan.highlighted
                     ? 'bg-cyan text-void shadow-[var(--shadow-glow-cyan)]'
                     : 'border border-electric/50 text-white hover:bg-electric/10'
                 }`}
               >
-                Get started
+                Get started with {plan.name}
               </Link>
             </div>
           ))}
@@ -138,7 +133,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <Link
-                  to="/contact"
+                  to={`/contact/?plan=care&care=${encodeURIComponent(plan.name)}#enquiry`}
                   className={`mt-8 block rounded-full py-3 text-center text-sm font-semibold transition ${
                     plan.highlighted
                       ? 'bg-cyan text-void shadow-[var(--shadow-glow-cyan)]'

@@ -1,25 +1,25 @@
 import { Link } from 'react-router-dom'
-import { trackContactClick } from '../../utils/analytics'
+import { openConsentSettings } from '../../utils/consent'
 
 const nav = [
-  { to: '/work', label: 'Work' },
-  { to: '/services', label: 'Services' },
-  { to: '/web-design-coventry', label: 'Web Design Coventry' },
-  { to: '/web-design-birmingham', label: 'Web Design Birmingham' },
-  { to: '/web-design-stratford-upon-avon', label: 'Web Design Stratford-upon-Avon' },
-  { to: '/web-design-wolverhampton', label: 'Web Design Wolverhampton' },
-  { to: '/web-design-bedworth', label: 'Web Design Bedworth' },
-  { to: '/web-design-nuneaton', label: 'Web Design Nuneaton' },
-  { to: '/web-design-warwick', label: 'Web Design Warwick' },
-  { to: '/web-design-leamington-spa', label: 'Web Design Leamington Spa' },
-  { to: '/pricing', label: 'Pricing' },
-  { to: '/contact', label: 'Contact' },
-  { to: '/privacy-policy/', label: 'Privacy', external: true },
+  { to: '/work/', label: 'Work' },
+  { to: '/services/', label: 'Services' },
+  { to: '/web-design-coventry/', label: 'Web Design Coventry' },
+  { to: '/web-design-birmingham/', label: 'Web Design Birmingham' },
+  { to: '/web-design-stratford-upon-avon/', label: 'Web Design Stratford-upon-Avon' },
+  { to: '/web-design-wolverhampton/', label: 'Web Design Wolverhampton' },
+  { to: '/web-design-bedworth/', label: 'Web Design Bedworth' },
+  { to: '/web-design-nuneaton/', label: 'Web Design Nuneaton' },
+  { to: '/web-design-warwick/', label: 'Web Design Warwick' },
+  { to: '/web-design-leamington-spa/', label: 'Web Design Leamington Spa' },
+  { to: '/pricing/', label: 'Pricing' },
+  { to: '/contact/', label: 'Contact' },
+  { to: '/privacy-policy/', label: 'Privacy' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] px-5 py-14" style={{ background: '#070a12' }}>
+    <footer className="relative border-t border-white/[0.06] px-5 pt-14 pb-24 sm:pb-14" style={{ background: '#070a12' }}>
       <div className="mx-auto max-w-[1280px]">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
@@ -63,7 +63,6 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:indi@vectormoon.co.uk"
-                  onClick={() => trackContactClick({ type: 'email', destination: 'indi@vectormoon.co.uk' })}
                   className="hover:text-cyan"
                 >
                   indi@vectormoon.co.uk
@@ -72,7 +71,6 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:07341555160"
-                  onClick={() => trackContactClick({ type: 'phone', destination: '07341555160' })}
                   className="hover:text-cyan"
                 >
                   07341 555160
@@ -106,7 +104,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/[0.06] pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-text-secondary">© 2026 VectorMoon. All rights reserved.</p>
+          <p className="text-xs text-text-secondary">
+            © 2026 VectorMoon. All rights reserved. ·{' '}
+            <button type="button" onClick={openConsentSettings} className="underline hover:text-cyan">
+              Cookie settings
+            </button>
+          </p>
           <p className="text-xs text-text-muted">Built for speed, SEO &amp; AI search visibility.</p>
         </div>
       </div>

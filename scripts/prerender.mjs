@@ -22,6 +22,7 @@ const routes = [
   ...locations.map((l) => `/web-design-${l.slug}`),
   '/pricing',
   '/contact',
+  '/privacy-policy',
 ]
 
 const MIME = {
@@ -95,6 +96,9 @@ for (const route of routes) {
   await page.addInitScript(() => {
     window.__VM_PRERENDER__ = true
   })
+  // Only our own HTML/JS is needed to snapshot the DOM: skip third-party
+  // requests (Google Fonts etc.) so 'load' fires quickly and builds are fast.
+  await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (r) => r.abort())
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 })
   await page.waitForLoadState('load', { timeout: 60000 }).catch(() => {})
   // Wait for route-specific H1 (confirms React painted the right page)

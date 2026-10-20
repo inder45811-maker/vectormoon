@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
 import Testimonials from '../components/Testimonials'
-import VectorMoonCanvas from '../components/3d/VectorMoonCanvas'
+import HeroMoon from '../components/3d/HeroMoon'
 import MagneticButton from '../components/ui/MagneticButton'
 import BorderBeam from '../components/ui/BorderBeam'
 import DecryptedText from '../components/ui/DecryptedText'
@@ -70,12 +70,8 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto grid w-full max-w-[1360px] items-center gap-12 px-6 pb-16 pt-24 lg:grid-cols-[1.05fr_1fr] lg:px-10 lg:pt-20">
           {/* LEFT: COMMAND NARRATIVE & KINETIC TYPOGRAPHY */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col justify-center"
-          >
+          {/* Hero copy renders visible immediately (no JS-gated fade-in) so it can be the LCP */}
+          <div className="flex flex-col justify-center">
             {/* Status Pill */}
             <div className="mb-6 flex items-center gap-3">
               <span className="relative flex h-2 w-2">
@@ -104,7 +100,7 @@ export default function Home() {
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <MagneticButton strength={18}>
                 <Link
-                  to="/contact"
+                  to="/contact/#enquiry"
                   className="inline-block w-full sm:w-auto rounded-full bg-cyan px-9 py-4 text-center text-sm font-semibold text-void shadow-[0_0_30px_rgba(0,198,255,0.45)] transition-all hover:brightness-110 hover:shadow-[0_0_45px_rgba(0,198,255,0.7)]"
                 >
                   Book a Free Strategy Call
@@ -112,7 +108,7 @@ export default function Home() {
               </MagneticButton>
               <MagneticButton strength={18}>
                 <Link
-                  to="/work"
+                  to="/work/"
                   className="inline-block w-full sm:w-auto rounded-full border border-electric/40 px-8 py-4 text-center text-sm font-medium text-white transition hover:bg-electric/15 hover:border-cyan/50"
                 >
                   View Client Work
@@ -124,12 +120,12 @@ export default function Home() {
             <div className="mt-11 flex flex-wrap items-center gap-7 text-xs uppercase tracking-[0.16em] text-text-secondary">
               <div className="flex items-center gap-2">
                 <span className="text-cyan font-mono text-[11px]">FROM</span>
-                <Counter to={799} prefix="£" duration={1.6} className="text-base font-bold text-white font-mono" />
+                <Counter to={plans[0].priceValue} prefix="£" className="text-base font-bold text-white font-mono" />
               </div>
               <span className="text-white/20">|</span>
               <div className="flex items-center gap-2">
                 <span className="text-cyan font-mono text-[11px]">DELIVERY</span>
-                <span className="text-base font-bold text-white font-mono">~2 WEEKS</span>
+                <span className="text-base font-bold text-white font-mono">{plans[0].delivery.toUpperCase()}</span>
               </div>
               <span className="text-white/20">|</span>
               <div className="flex items-center gap-2">
@@ -137,13 +133,10 @@ export default function Home() {
                 <span className="text-base font-bold text-white font-mono">FIXED UP FRONT</span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT: PHOTOREALISTIC 3D LUNAR SHOWCASE WITH INTERACTIVE HOTSPOTS */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+          <div
             className="relative flex flex-col items-center justify-center overflow-visible w-full"
             data-cursor="drag"
             data-cursor-text="DRAG TO ORBIT ↺"
@@ -153,18 +146,13 @@ export default function Home() {
 
             {/* Upgraded 3D Celestial Canvas with Telemetry Dock */}
             <div className="relative w-full flex items-center justify-center overflow-visible">
-              <VectorMoonCanvas className="w-full" />
+              <HeroMoon />
             </div>
 
             {/* Refined Glass Capsule */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="mt-4 flex items-center justify-center z-20"
-            >
+            <div className="mt-4 flex items-center justify-center z-20">
               <Link
-                to={`/work/${featuredClient.slug}`}
+                to={`/work/${featuredClient.slug}/`}
                 className="group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2 text-xs text-text-secondary backdrop-blur-md transition-all duration-300 hover:border-cyan/50 hover:bg-white/[0.08] hover:text-white"
                 data-cursor="explore"
                 data-cursor-text="VIEW CASE STUDY ↗"
@@ -173,8 +161,8 @@ export default function Home() {
                 <span>Featured Client: <strong className="text-white font-medium">{featuredClient.title}</strong></span>
                 <span className="text-cyan transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -221,7 +209,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-12">
-            <Link to="/services" className="text-sm font-semibold text-cyan hover:underline group flex items-center gap-1.5">
+            <Link to="/services/" className="text-sm font-semibold text-cyan hover:underline group flex items-center gap-1.5">
               Explore all services <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -314,7 +302,7 @@ export default function Home() {
           <div className="mt-7 flex justify-center">
             <MagneticButton strength={16}>
               <Link
-                to="/pricing"
+                to="/pricing/"
                 className="inline-flex rounded-full border border-electric/50 px-9 py-3.5 text-sm font-medium text-white transition hover:bg-electric/20 hover:border-cyan/50"
               >
                 Full pricing details
@@ -344,7 +332,7 @@ export default function Home() {
         <div className="mt-9 flex justify-center">
           <MagneticButton strength={22}>
             <Link
-              to="/contact"
+              to="/contact/#enquiry"
               className="inline-flex rounded-full bg-cyan px-11 py-4 text-sm font-semibold text-void shadow-[0_0_30px_rgba(0,198,255,0.6)] transition-all hover:brightness-110 hover:shadow-[0_0_45px_rgba(0,198,255,0.85)]"
             >
               Book Your Free Call

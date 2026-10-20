@@ -1,7 +1,17 @@
+/**
+ * Single source of truth for package names, prices and delivery times.
+ * Used by /pricing, the homepage cards, the scope builder, location pages,
+ * the contact form package picker and the JSON-LD structured data.
+ * (Values = the most common ones on the live site, 20 Oct 2026. Owner to confirm.)
+ */
 export const plans = [
   {
+    id: 'core',
     name: 'Core Build',
     price: '£799',
+    priceValue: 799,
+    priceFrom: false,
+    delivery: '1–2 weeks',
     period: 'one-off',
     blurb: 'Get online with a sharp single-page site that does not embarrass you',
     features: [
@@ -10,13 +20,17 @@ export const plans = [
       'Mobile-first + contact form',
       'Basic on-page SEO',
       '1 revision round',
-      '~1 week delivery',
+      'Delivery: 1–2 weeks',
     ],
     highlighted: false,
   },
   {
+    id: 'growth',
     name: 'Growth Engine',
     price: '£1,499',
+    priceValue: 1499,
+    priceFrom: false,
+    delivery: '1–2 weeks',
     period: 'one-off',
     blurb: 'Most popular for Coventry & West Midlands SMEs — makes the phone ring',
     features: [
@@ -25,13 +39,17 @@ export const plans = [
       'Google Business Profile setup',
       '3 months local SEO',
       'Conversion copy + proof section',
-      '~2 week delivery',
+      'Delivery: 1–2 weeks',
     ],
     highlighted: true,
   },
   {
+    id: 'scale',
     name: 'Enterprise Scale',
     price: '£2,999+',
+    priceValue: 2999,
+    priceFrom: true,
+    delivery: '3–4 weeks',
     period: 'project',
     blurb: 'A site that runs without you — e-commerce, CRM & ongoing SEO',
     features: [
@@ -41,6 +59,7 @@ export const plans = [
       '6 months SEO + content engine',
       'Review funnel',
       'Quarterly performance report',
+      'Delivery: 3–4 weeks',
     ],
     highlighted: false,
   },
@@ -96,3 +115,14 @@ export const carePlans = [
 
 export const careDisclosure =
   'Keep it working after launch — care plans from £99/mo, cancel anytime.'
+
+/** Find a plan from a ?plan= value (id, legacy id or name). */
+export function findPlan(value) {
+  if (!value) return null
+  const v = String(value).toLowerCase().replace(/[^a-z]/g, '')
+  const alias = { enterprise: 'scale', ecommerce: 'scale', enterprisescale: 'scale', corebuild: 'core', growthengine: 'growth' }
+  const id = alias[v] || v
+  return plans.find((p) => p.id === id) || null
+}
+
+export const formatGBP = (n) => `£${Number(n).toLocaleString('en-GB')}`

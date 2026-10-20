@@ -228,7 +228,7 @@ export default function RoiCalculator() {
           <div className="mt-6">
             <MagneticButton strength={15}>
               <Link
-                to="/contact"
+                to="/contact/"
                 className="block w-full text-center rounded-full bg-cyan px-7 py-3.5 text-xs font-semibold text-void shadow-[0_0_25px_rgba(0,198,255,0.5)] transition hover:brightness-110"
               >
                 Talk it through on a free call →

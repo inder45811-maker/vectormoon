@@ -53,8 +53,8 @@ export default function Services() {
         title="Everything between"
         highlight="brief and launch."
         subtitle="A focused studio stack for small businesses that need a serious site without enterprise theatre."
-        primaryCta={{ to: '/contact', label: 'Discuss your project' }}
-        secondaryCta={{ to: '/pricing', label: 'See pricing' }}
+        primaryCta={{ to: '/contact/', label: 'Discuss your project' }}
+        secondaryCta={{ to: '/pricing/', label: 'See pricing' }}
         compact
       />
 
@@ -76,7 +76,7 @@ export default function Services() {
           <p className="mt-2 text-sm text-text-secondary">
             See our dedicated web design Coventry page built for local search &amp; AI answers.
           </p>
-          <Link to="/web-design-coventry" className="mt-5 inline-block text-sm text-cyan hover:underline">
+          <Link to="/web-design-coventry/" className="mt-5 inline-block text-sm text-cyan hover:underline">
             Web design Coventry →
           </Link>
         </div>

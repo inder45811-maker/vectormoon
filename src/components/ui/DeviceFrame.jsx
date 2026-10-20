@@ -1,4 +1,5 @@
 import TiltCard from './TiltCard'
+import { portfolioSrcSet } from '../../data/projects'
 
 /** Browser chrome frame for portfolio screenshots with 3D tilt */
 export default function DeviceFrame({
@@ -25,9 +26,11 @@ export default function DeviceFrame({
         {src ? (
           <img
             src={src}
+            srcSet={portfolioSrcSet(src)}
+            sizes="(min-width: 1024px) 620px, 100vw"
             alt={alt}
-            width="2880"
-            height="1800"
+            width="1440"
+            height="900"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
             loading={loading}
             fetchPriority={fetchPriority}

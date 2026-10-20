@@ -556,7 +556,7 @@ export default function VectorMoonCanvas({ className = '', onLanded = null }) {
       <div
         ref={mountRef}
         className="relative h-[480px] sm:h-[540px] lg:h-[600px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing overflow-visible"
-        style={{ touchAction: 'none' }}
+        style={{ touchAction: 'pan-y' }}
         title="Click and drag to rotate the photorealistic VectorMoon"
       />
 

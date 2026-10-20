@@ -87,10 +87,10 @@ export default function ProcessFlightPlan() {
           Aerospace Delivery Pipeline
         </p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl text-white">
-          From zero to orbit <span className="gradient-text">in 14 days.</span>
+          From brief to launch <span className="gradient-text">in 1–2 weeks.</span>
         </h2>
         <p className="mt-3 text-text-secondary max-w-xl mx-auto text-sm md:text-base">
-          A disciplined 4-stage engineering sprint with transparent milestone deliverables and zero agency bloat.
+          A 4-stage plan with clear milestones for Core Build and Growth Engine sites (Enterprise Scale projects typically take 3–4 weeks). Timings start once your content and feedback are ready.
         </p>
       </div>
 
@@ -116,7 +116,7 @@ export default function ProcessFlightPlan() {
                 <span className={isSelected ? 'text-cyan font-bold' : 'text-text-secondary'}>
                   PHASE {p.phase}
                 </span>
-                <span className="text-white/40">{p.days}</span>
+                <span className="text-white/60">{p.days}</span>
               </div>
               <div className="mt-2 font-bold text-white text-sm md:text-base truncate">
                 {p.code}
