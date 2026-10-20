@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { projects } from '../../data/projects'
+import { projects, portfolioSrcSet } from '../../data/projects'
 import { playHapticClick, playTelemetryPing } from '../../utils/audio'
 import MagneticButton from './MagneticButton'
 
@@ -133,6 +133,12 @@ export default function DeviceLab() {
                 <div className="aspect-[16/10] w-full overflow-hidden bg-void">
                   <img
                     src={activeProject.image}
+                    srcSet={portfolioSrcSet(activeProject.image)}
+                    sizes="(min-width: 1024px) 760px, 100vw"
+                    loading="lazy"
+                    decoding="async"
+                    width="1440"
+                    height="900"
                     alt={`${activeProject.title} desktop build`}
                     className="h-full w-full object-cover object-top transition duration-700 hover:scale-105"
                   />
@@ -153,6 +159,10 @@ export default function DeviceLab() {
                 <div className="aspect-[9/19] w-full overflow-hidden rounded-[32px] bg-void">
                   <img
                     src={activeProject.imageMobile || activeProject.image}
+                    srcSet={portfolioSrcSet(activeProject.imageMobile || activeProject.image)}
+                    sizes="320px"
+                    loading="lazy"
+                    decoding="async"
                     alt={`${activeProject.title} mobile build`}
                     className="h-full w-full object-cover object-top"
                   />
@@ -185,7 +195,7 @@ export default function DeviceLab() {
           {activeProject.note && (
             <p className="mt-2 text-xs text-white/70 leading-relaxed">{activeProject.note}</p>
           )}
-          <p className="mt-3 text-sm text-text-secondary/80 leading-relaxed">
+          <p className="mt-3 text-sm text-text-secondary leading-relaxed">
             {activeProject.description}
           </p>
 
@@ -213,7 +223,7 @@ export default function DeviceLab() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <MagneticButton strength={15}>
               <Link
-                to={`/work/${activeProject.slug}`}
+                to={`/work/${activeProject.slug}/`}
                 className="inline-flex rounded-full bg-cyan px-7 py-3 text-xs font-semibold text-void shadow-[0_0_25px_rgba(0,198,255,0.4)] transition hover:brightness-110"
               >
                 Deep-Dive Case Study →

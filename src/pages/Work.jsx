@@ -58,7 +58,7 @@ export default function Work() {
                 </ul>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
-                    to={`/work/${p.slug}`}
+                    to={`/work/${p.slug}/`}
                     className="rounded-full bg-cyan px-6 py-2.5 text-sm font-semibold text-void"
                   >
                     Case study

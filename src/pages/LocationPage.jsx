@@ -57,8 +57,8 @@ export default function LocationPage({ slug }) {
         title={loc.heroTitle}
         highlight={loc.highlight}
         subtitle={loc.subtitle}
-        primaryCta={{ to: '/contact', label: `Book free ${loc.town} consult` }}
-        secondaryCta={{ to: '/work', label: 'See local work' }}
+        primaryCta={{ to: '/contact/', label: `Book free ${loc.town} consult` }}
+        secondaryCta={{ to: '/work/', label: 'See our work' }}
         compact
       />
 
@@ -80,7 +80,7 @@ export default function LocationPage({ slug }) {
                 {nearby.map((n) => (
                   <Link
                     key={n.slug}
-                    to={`/web-design-${n.slug}`}
+                    to={`/web-design-${n.slug}/`}
                     className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-text-secondary transition hover:border-cyan/40 hover:text-cyan"
                   >
                     Web Design {n.town}
@@ -94,7 +94,7 @@ export default function LocationPage({ slug }) {
             <h2 className="text-2xl font-bold mb-6">Recent work</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {projects.slice(0, 2).map((p) => (
-                <Link key={p.slug} to={`/work/${p.slug}`} className="group no-underline">
+                <Link key={p.slug} to={`/work/${p.slug}/`} className="group no-underline">
                   <DeviceFrame src={p.image} alt={p.title} />
                   <p className="mt-3 font-semibold text-white group-hover:text-cyan">
                     {p.title} · {p.location}
@@ -114,7 +114,7 @@ export default function LocationPage({ slug }) {
                 </div>
               ))}
             </div>
-            <Link to="/pricing" className="mt-4 inline-block text-sm text-cyan hover:underline">
+            <Link to="/pricing/" className="mt-4 inline-block text-sm text-cyan hover:underline">
               Full package details →
             </Link>
             <p className="mt-4 text-sm text-text-secondary">{careDisclosure}</p>
@@ -154,7 +154,7 @@ export default function LocationPage({ slug }) {
               </a>
             </p>
             <Link
-              to="/contact"
+              to="/contact/"
               className="mt-6 inline-flex rounded-full bg-cyan px-8 py-3 text-sm font-semibold text-void"
             >
               Book free strategy call

@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import AudioToggle from '../ui/AudioToggle'
 
 const links = [
-  { to: '/work', label: 'Work' },
-  { to: '/services', label: 'Services' },
-  { to: '/web-design-coventry', label: 'Coventry' },
-  { to: '/pricing', label: 'Pricing' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/work/', label: 'Work' },
+  { to: '/services/', label: 'Services' },
+  { to: '/web-design-coventry/', label: 'Coventry' },
+  { to: '/pricing/', label: 'Pricing' },
+  { to: '/contact/', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -60,7 +60,7 @@ export default function Navbar() {
           ))}
           <AudioToggle />
           <Link
-            to="/contact"
+            to="/contact/#enquiry"
             className="rounded-full bg-cyan px-5 py-2.5 text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
           >
             Free Call
@@ -108,7 +108,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to="/contact/#enquiry"
                 onClick={() => setOpen(false)}
                 className="mt-3 rounded-full bg-cyan px-5 py-3 text-center text-sm font-semibold text-void"
               >

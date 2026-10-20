@@ -5,34 +5,25 @@ import Counter from './Counter'
 import MagneticButton from './MagneticButton'
 import { playHapticClick, playChime } from '../../utils/audio'
 import { trackCalculatorEngagement, trackCtaClick } from '../../utils/analytics'
+import { plans, formatGBP } from '../../data/pricing'
 
-const TIERS = [
-  {
-    id: 'core',
-    name: 'Core Authority Site',
-    price: 799,
-    timeline: '10-14 days',
-    desc: 'Bespoke custom architecture to replace template mills. Engineered for local trust & search.',
-    features: ['Up to 5 bespoke pages', 'Mobile-first speed architecture', 'Google Search & Schema verification'],
-  },
-  {
-    id: 'growth',
-    name: 'Growth Conversion Engine',
-    price: 1499,
-    timeline: '14-21 days',
-    desc: 'Multi-page GEO capture system designed to rank across surrounding towns and capture bookings.',
-    features: ['Up to 12 targeted pages', 'Sub-service & local landing pages', 'Automated booking & lead triage'],
-    recommended: true,
-  },
-  {
-    id: 'scale',
-    name: 'Bespoke Enterprise / E-Commerce',
-    price: 2799,
-    timeline: '3-4 weeks',
-    desc: 'Complete headless build, online store, or complex web applications with 3D product visualizers.',
-    features: ['Unlimited custom page architecture', 'High-speed payment checkout', 'Bespoke WebGL / 3D product integration'],
-  },
-]
+// Names, prices and delivery times come from src/data/pricing.js so the
+// builder can never disagree with /pricing or the structured data.
+const TIER_COPY = {
+  core: 'Hand-built site to replace a template. Built for local trust & search.',
+  growth: 'Multi-page site designed to rank across surrounding towns and capture enquiries.',
+  scale: 'Online store, booking/CRM integration or a larger custom build.',
+}
+const TIERS = plans.map((p) => ({
+  id: p.id,
+  name: p.name,
+  price: p.priceValue,
+  priceFrom: p.priceFrom,
+  timeline: p.delivery,
+  desc: TIER_COPY[p.id],
+  features: p.features.slice(0, 3),
+  recommended: p.highlighted,
+}))
 
 const ADDONS = [
   {
@@ -69,6 +60,10 @@ export default function ScopeCalculator() {
     return activeTier.price + addonsTotal
   }, [activeTier, selectedAddons])
 
+  const totalLabel = `${activeTier.priceFrom ? 'from ' : ''}${formatGBP(totalPrice)}`
+  const ctaLabel = `Request this scope (${totalLabel})`
+  const contactHref = `/contact/?plan=${activeTier.id}&scope=${selectedAddons.join(',')}&total=${totalPrice}#enquiry`
+
   const toggleAddon = (id) => {
     playHapticClick()
     playChime(660)
@@ -97,7 +92,7 @@ export default function ScopeCalculator() {
         <div className="flex items-baseline gap-2 rounded-2xl border border-cyan/30 bg-cyan/5 px-6 py-4">
           <span className="text-xs font-mono uppercase tracking-wider text-text-secondary">ESTIMATED TOTAL:</span>
           <span className="text-3xl font-bold font-mono gradient-text">
-            £<Counter to={totalPrice} duration={0.8} />
+            {activeTier.priceFrom ? 'from ' : ''}£<Counter to={totalPrice} duration={0.8} format />
           </span>
         </div>
       </div>
@@ -128,7 +123,7 @@ export default function ScopeCalculator() {
                 )}
                 <div className="flex items-center justify-between">
                   <h4 className="text-base font-bold text-white">{tier.name}</h4>
-                  <span className="text-lg font-bold font-mono text-cyan">£{tier.price}</span>
+                  <span className="text-lg font-bold font-mono text-cyan whitespace-nowrap">{tier.priceFrom ? 'from ' : ''}{formatGBP(tier.price)}</span>
                 </div>
                 <p className="mt-2 text-xs text-text-secondary line-clamp-2 leading-relaxed">{tier.desc}</p>
                 <div className="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-cyan">
@@ -191,12 +186,12 @@ export default function ScopeCalculator() {
         <div>
           <span className="text-xs font-mono text-cyan">ESTIMATED LAUNCH:</span>
           <p className="text-sm font-medium text-white">
-            {activeTier.timeline} · Fixed Price Agreement · Includes Full Post-Launch Handover
+            Typical delivery {activeTier.timeline} · Fixed price agreed up front · Full handover after launch
           </p>
         </div>
         <MagneticButton strength={15}>
           <Link
-            to={`/contact?plan=${activeTier.id}&scope=${selectedAddons.join(',')}&total=${totalPrice}`}
+            to={contactHref}
             onClick={() => {
               trackCalculatorEngagement({
                 type: 'scope_calculator',
@@ -204,16 +199,12 @@ export default function ScopeCalculator() {
                 addons: selectedAddons,
                 total: totalPrice,
               })
-              trackCtaClick({
-                text: `Lock In This Scope (£${totalPrice})`,
-                destination: `/contact?plan=${activeTier.id}&scope=${selectedAddons.join(',')}&total=${totalPrice}`,
-                section: 'scope_calculator',
-              })
+              trackCtaClick({ text: ctaLabel, destination: contactHref, section: 'scope_calculator' })
             }}
             className="inline-flex items-center gap-2 rounded-full bg-cyan px-8 py-3.5 text-sm font-semibold text-void shadow-[0_0_25px_rgba(0,198,255,0.4)] transition hover:brightness-110"
             data-cursor="click"
           >
-            <span>Lock In This Scope (£{totalPrice})</span>
+            <span>{ctaLabel}</span>
             <span>→</span>
           </Link>
         </MagneticButton>

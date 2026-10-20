@@ -1,13 +1,13 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
 import DeviceFrame from '../components/ui/DeviceFrame'
-import { getProject, projects } from '../data/projects'
+import { getProject, projects, portfolioSrcSet } from '../data/projects'
 import { pageSeo } from '../data/seo'
 
 export default function WorkDetail() {
   const { slug } = useParams()
   const p = getProject(slug)
-  if (!p) return <Navigate to="/work" replace />
+  if (!p) return <Navigate to="/work/" replace />
 
   const seo = pageSeo({
     title: `${p.title} | Website Project | VectorMoon`,
@@ -20,7 +20,7 @@ export default function WorkDetail() {
       '@type': 'CreativeWork',
       name: p.title,
       description: p.description,
-      url: `https://vectormoon.co.uk/work/${p.slug}`,
+      url: `https://vectormoon.co.uk/work/${p.slug}/`,
       creator: { '@type': 'Organization', name: 'VectorMoon' },
       about: p.industry,
     },
@@ -33,7 +33,7 @@ export default function WorkDetail() {
       <Seo {...seo} />
       <article className="pt-32 pb-24" style={{ background: '#0B1020' }}>
         <div className="mx-auto max-w-[1000px] px-5 lg:px-8">
-          <Link to="/work" className="text-sm text-cyan hover:underline">
+          <Link to="/work/" className="text-sm text-cyan hover:underline">
             ← All work
           </Link>
           <div className="mt-6 flex flex-wrap gap-2">
@@ -58,7 +58,7 @@ export default function WorkDetail() {
                 <div className="flex justify-center border-b border-white/5 py-2">
                   <div className="h-1.5 w-16 rounded-full bg-white/15" />
                 </div>
-                <img src={p.imageMobile} alt={`${p.title} mobile`} className="w-full object-cover object-top" loading="lazy" />
+                <img src={p.imageMobile} srcSet={portfolioSrcSet(p.imageMobile)} sizes="280px" alt={`${p.title} mobile`} className="w-full object-cover object-top" loading="lazy" decoding="async" />
               </div>
             </div>
           )}
@@ -97,7 +97,7 @@ export default function WorkDetail() {
               {p.linkLabel || 'Visit site'} ↗
             </a>
             <Link
-              to="/contact"
+              to="/contact/"
               className="rounded-full border border-white/15 px-7 py-3 text-sm text-white hover:border-cyan/40"
             >
               Start a similar project
@@ -108,7 +108,7 @@ export default function WorkDetail() {
             <p className="text-xs uppercase tracking-[0.2em] text-cyan mb-6">More work</p>
             <div className="grid gap-6 sm:grid-cols-2">
               {others.map((o) => (
-                <Link key={o.slug} to={`/work/${o.slug}`} className="group no-underline">
+                <Link key={o.slug} to={`/work/${o.slug}/`} className="group no-underline">
                   <DeviceFrame src={o.image} alt={o.title} />
                   <p className="mt-3 font-semibold text-white group-hover:text-cyan">{o.title}</p>
                 </Link>

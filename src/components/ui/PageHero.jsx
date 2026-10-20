@@ -44,7 +44,7 @@ export default function PageHero({
           <motion.p
             custom={0}
             variants={fade}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-cyan"
           >
@@ -54,7 +54,7 @@ export default function PageHero({
         <motion.h1
           custom={1}
           variants={fade}
-          initial="hidden"
+          initial={false}
           animate="show"
           className="text-4xl font-bold leading-[1.08] tracking-[-0.04em] sm:text-5xl md:text-6xl"
         >
@@ -65,7 +65,7 @@ export default function PageHero({
           <motion.p
             custom={2}
             variants={fade}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="mx-auto mt-6 max-w-[560px] text-base leading-relaxed text-text-secondary md:text-lg"
           >
@@ -76,7 +76,7 @@ export default function PageHero({
           <motion.div
             custom={3}
             variants={fade}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >

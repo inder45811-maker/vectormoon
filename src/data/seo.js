@@ -1,4 +1,5 @@
 import { locations } from './locations'
+import { plans } from './pricing'
 
 const SITE = 'https://vectormoon.co.uk'
 const DEFAULT_IMAGE = `${SITE}/og-image.png`
@@ -11,7 +12,11 @@ export function pageSeo({
   image = DEFAULT_IMAGE,
   jsonLd = null,
 }) {
-  const url = path === '/' ? `${SITE}/` : `${SITE}${path.startsWith('/') ? path : `/${path}`}`
+  // GitHub Pages serves every route as a directory (/pricing/); the no-slash
+  // form 301-redirects, so canonical/og:url always use the trailing slash.
+  let clean = path.startsWith('/') ? path : `/${path}`
+  if (!clean.endsWith('/')) clean += '/'
+  const url = `${SITE}${clean}`
   return {
     title,
     description,
@@ -38,7 +43,7 @@ export const businessJsonLd = {
     'High-end web design studio in Coventry building modern, high-converting websites for UK local businesses.',
   email: 'indi@vectormoon.co.uk',
   telephone: '+447341555160',
-  priceRange: '£799–£2999+',
+  priceRange: `${plans[0].price}–${plans[plans.length - 1].price}`,
   currenciesAccepted: 'GBP',
   areaServed: [
     ...locations.map((l) => ({ '@type': 'City', name: l.town })),
@@ -70,39 +75,18 @@ export const businessJsonLd = {
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Web Design & Digital Growth Services',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Core Build Website',
-          description: 'Custom high-end bespoke architecture engineered for local speed and trust.',
-        },
-        price: '799',
-        priceCurrency: 'GBP',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Growth Conversion Engine',
-          description: 'Multi-page GEO capture system designed to rank across surrounding towns.',
-        },
-        price: '1499',
-        priceCurrency: 'GBP',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Bespoke Enterprise & E-Commerce',
-          description: 'Custom headless architecture, online store, or complex web applications with 3D product visualizers.',
-        },
-        price: '2799',
-        priceCurrency: 'GBP',
-      },
-    ],
+    name: 'Website design packages',
+    itemListElement: plans.map((p) => ({
+      '@type': 'Offer',
+      name: p.name,
+      description: `${p.blurb}. Typical delivery ${p.delivery}.`,
+      itemOffered: { '@type': 'Service', name: `${p.name} website` },
+      priceCurrency: 'GBP',
+      price: String(p.priceValue),
+      ...(p.priceFrom
+        ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: p.priceValue, priceCurrency: 'GBP' } }
+        : {}),
+    })),
   },
 }
 

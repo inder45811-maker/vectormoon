@@ -17,7 +17,11 @@ export default function AgencyHud() {
         minute: '2-digit',
         second: '2-digit',
       })
-      setTime(timeStr)
+      const zone =
+        new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', timeZoneName: 'short' })
+          .formatToParts(now)
+          .find((p) => p.type === 'timeZoneName')?.value || ''
+      setTime(`${timeStr} ${zone === 'GMT+1' ? 'BST' : zone}`)
     }
     updateTime()
     const timer = setInterval(updateTime, 1000)
@@ -71,7 +75,7 @@ export default function AgencyHud() {
         {/* London / Coventry Clock */}
         <div className="flex items-center gap-1.5 border-r border-white/10 pr-3 text-text-secondary">
           <span className="text-cyan font-semibold">UK:</span>
-          <span>{time || '21:54:00'} GMT</span>
+          <span>{time || '--:--:--'}</span>
         </div>
 
         {/* Soundscape Status & Toggle */}

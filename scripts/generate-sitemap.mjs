@@ -16,21 +16,21 @@ const BASE = 'https://vectormoon.co.uk'
 
 const staticRoutes = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/work', changefreq: 'weekly', priority: '0.9' },
-  { path: '/services', changefreq: 'monthly', priority: '0.85' },
-  { path: '/pricing', changefreq: 'monthly', priority: '0.9' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.85' },
+  { path: '/work/', changefreq: 'weekly', priority: '0.9' },
+  { path: '/services/', changefreq: 'monthly', priority: '0.85' },
+  { path: '/pricing/', changefreq: 'monthly', priority: '0.9' },
+  { path: '/contact/', changefreq: 'monthly', priority: '0.85' },
   { path: '/privacy-policy/', changefreq: 'yearly', priority: '0.3' },
 ]
 
 const workRoutes = projects.map((p) => ({
-  path: `/work/${p.slug}`,
+  path: `/work/${p.slug}/`,
   changefreq: 'monthly',
   priority: '0.8',
 }))
 
 const locationRoutes = locations.map((l) => ({
-  path: `/web-design-${l.slug}`,
+  path: `/web-design-${l.slug}/`,
   changefreq: 'weekly',
   priority: l.slug === 'coventry' ? '0.95' : '0.9',
 }))
