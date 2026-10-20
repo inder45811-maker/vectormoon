@@ -103,10 +103,6 @@ export default function Privacy() {
               <strong className="text-white">Hosting:</strong> the site is hosted on GitHub Pages (GitHub, Inc.), which
               processes IP addresses in server logs to deliver and secure the site.
             </li>
-            <li>
-              <strong className="text-white">Fonts:</strong> web fonts are loaded from Google Fonts, so Google receives
-              your IP address when the page loads. No cookies are set by Google Fonts.
-            </li>
           </UL>
 
           <H2>5. Sharing and international transfers</H2>
