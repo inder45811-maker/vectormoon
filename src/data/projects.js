@@ -1,10 +1,13 @@
 export const projects = [
   {
     slug: 'dips-pt',
-    title: 'Dips PT',
-    tagline: 'Personal training that turns Coventry clients into paying members',
+    title: 'HSK Coaching',
+    tagline: 'Membership website for a Coventry personal trainer',
     description:
-      'A membership website for a Coventry personal trainer — six named training programmes (Ascend, Define, Endure, Forged, Limitless, Vitality), clear £29–£249 pricing, gym-or-home flexibility, and a 7-day no-card trial that lowers sign-up friction.',
+      'A membership website for a Coventry personal trainer, live at hskcoaching.co.uk under the HSK Coaching brand: six named training programmes (Ascend, Define, Endure, Forged, Limitless, Vitality), clear £29–£249 pricing, gym-or-home flexibility, and a 7-day no-card trial.',
+    status: 'LIVE · HSKCOACHING.CO.UK',
+    note: 'Project name: Dips PT. The live site is branded HSK Coaching.',
+    linkLabel: 'Visit hskcoaching.co.uk',
     tag: 'Membership',
     location: 'Coventry',
     industry: 'Personal training & fitness',
@@ -24,9 +27,11 @@ export const projects = [
   {
     slug: 'punjabi-number-plates',
     title: 'Punjabi Number Plates',
-    tagline: 'E-commerce for road-legal & show plates',
+    tagline: 'Online storefront for road-legal & show plates',
     description:
-      'A full online storefront for premium number plates — product storytelling, trust signals, and a shop flow designed for real orders, not just a brochure look.',
+      'An online storefront for premium number plates, with product storytelling, trust signals and a shop flow rather than a brochure-style page.',
+    status: 'LIVE · PUNJABINUMBERPLATES.CO.UK',
+    linkLabel: 'Visit punjabinumberplates.co.uk',
     tag: 'E-Commerce',
     location: 'United Kingdom',
     industry: 'Automotive retail',
@@ -38,16 +43,19 @@ export const projects = [
     results: [
       'Product-first catalogue experience',
       'Trust & compliance messaging for plate buyers',
-      'Performance-tuned storefront on modern stack',
+      'Storefront built on a modern React + Vite stack',
     ],
-    stack: ['React', 'Vite', 'Shopify-ready', 'SEO tooling'],
+    stack: ['React', 'Vite', 'SEO tooling'],
   },
   {
     slug: 'making-marks',
     title: 'Making Marks Tattoo Co',
     tagline: 'Black & grey studio site with multi-page local SEO',
     description:
-      'A seven-page Astro site for a Royal Leamington Spa tattoo studio — artist profiles for Connor, Kev and Liv, a full aftercare guide, FAQ, and a Fresha booking flow. Every page carries structured data, led by a TattooParlor schema with address, hours and service area, so Google and AI search understand the studio.',
+      'A seven-page Astro site for a Royal Leamington Spa tattoo studio: artist profiles for Connor, Kev and Liv, a full aftercare guide, FAQ, and a Fresha booking flow. Every page carries structured data, led by a TattooParlor schema with address, hours and service area. This build is hosted on a GitHub Pages preview address, not on the studio\'s own domain.',
+    status: 'PREVIEW BUILD · GITHUB.IO',
+    note: 'Preview build: hosted on our GitHub Pages address (github.io), not on the studio\'s own domain.',
+    linkLabel: 'View preview build',
     tag: 'Multi-page',
     location: 'Leamington Spa',
     industry: 'Tattoo studio',

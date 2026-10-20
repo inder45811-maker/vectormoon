@@ -91,7 +91,7 @@ export default function LocationPage({ slug }) {
           )}
 
           <div className="mt-14">
-            <h2 className="text-2xl font-bold mb-6">Local work nearby</h2>
+            <h2 className="text-2xl font-bold mb-6">Recent work</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {projects.slice(0, 2).map((p) => (
                 <Link key={p.slug} to={`/work/${p.slug}`} className="group no-underline">

@@ -10,7 +10,7 @@ export default function Work() {
   const seo = pageSeo({
     title: 'Portfolio & Client Work | VectorMoon Coventry',
     description:
-      'Live websites built by VectorMoon: Dips PT (Coventry), Punjabi Number Plates (e-commerce), and Making Marks Tattoo Co (Leamington Spa).',
+      'Websites built by VectorMoon: HSK Coaching (Coventry personal trainer), Punjabi Number Plates (online store), and a preview build for Making Marks Tattoo Co (Leamington Spa).',
     path: '/work',
     image: 'https://vectormoon.co.uk/portfolio/punjabi-number-plates-desktop.jpg',
   })
@@ -22,7 +22,7 @@ export default function Work() {
         eyebrow="Portfolio"
         title="Work that ships"
         highlight="and sells."
-        subtitle="Real businesses. Live URLs. Screenshots captured from production sites — not mockups."
+        subtitle="Three recent builds. Two are live on the client's own domain; one is a preview build on a github.io address. Each card says which."
         compact
       />
 
@@ -41,9 +41,13 @@ export default function Work() {
                 <div className="mb-3 flex flex-wrap gap-2">
                   <span className="rounded-full bg-cyan/10 px-3 py-1 text-xs font-medium text-cyan">{p.tag}</span>
                   <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-text-secondary">{p.location}</span>
+                  {p.status && (
+                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80">{p.status}</span>
+                  )}
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight">{p.title}</h2>
                 <p className="mt-2 text-lg text-text-secondary">{p.tagline}</p>
+                {p.note && <p className="mt-2 text-sm text-white/70">{p.note}</p>}
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{p.description}</p>
                 <ul className="mt-6 space-y-2">
                   {p.results.map((r) => (
@@ -65,7 +69,7 @@ export default function Work() {
                     rel="noopener noreferrer"
                     className="rounded-full border border-white/15 px-6 py-2.5 text-sm text-white hover:border-cyan/40"
                   >
-                    Visit live site ↗
+                    {p.linkLabel || 'Visit site'} ↗
                   </a>
                 </div>
               </div>
