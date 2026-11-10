@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0B1020" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: optional;
+      src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Syne";
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: optional;
+      src: url("/fonts/syne-latin.woff2") format("woff2");
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <title>AI readiness scorecard | Vector Moon</title>
+  <meta name="description" content="A 90-second AI readiness scorecard for established businesses. Get a score, three practical recommendations, and a next step." />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="https://www.vectormoon.co.uk/">
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="navMoon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C6FF" />
+      <stop offset="100%" stop-color="#7B61FF" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="8" width="56" height="48" rx="8" stroke="#8892B0" stroke-width="1.5" fill="#0B1020" />
+  <line x1="4" y1="18" x2="60" y2="18" stroke="#8892B0" stroke-width="1" opacity="0.6" />
+  <circle cx="32" cy="36" r="12" fill="url(#navMoon)" />
+  <circle cx="38" cy="32" r="10" fill="#0B1020" />
+</svg>
+        <span>Vector<span class="brand-moon">Moon</span></span>
+      </a>
+      <nav class="nav" aria-label="On this preview">
+        <a href="index.html">AI services</a>
+        <a href="scorecard.html" aria-current="page">Scorecard</a>
+      </nav>
+        <!-- TODO: replace this mailto with a Cal.com booking link once Indi has approved an account. -->
+        <a class="btn btn-primary header-cta" href="mailto:indi@vectormoon.co.uk?subject=AI%20audit">Book an AI audit</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero score-hero">
+      <div class="orb" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">90-second scorecard</p>
+        <h1>How ready is your business <span class="gradient">for AI?</span></h1>
+        <p class="lede">Eight short questions. You get a score, three tailored recommendations, and the option to send the results to us. Nothing is stored on this page.</p>
+      </div>
+    </section>
+
+    <div class="wrap score-wrap">
+      <form id="score-form" novalidate>
+        <fieldset class="q">
+          <legend class="visually-hidden">1. In a typical week, how many hours does your team spend on repetitive admin?</legend>
+          <div class="q-card">
+          <p class="q-title">1. In a typical week, how many hours does your team spend on repetitive admin?</p>
+<div class="options">
+            <label class="option"><input type="radio" name="admin_hours" value="under5" data-points="1" required /> Under 5 hours</label>
+            <label class="option"><input type="radio" name="admin_hours" value="5to15" data-points="2" /> 5–15 hours</label>
+            <label class="option"><input type="radio" name="admin_hours" value="15to30" data-points="3" /> 15–30 hours</label>
+            <label class="option"><input type="radio" name="admin_hours" value="over30" data-points="4" /> Over 30 hours</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">2. How are enquiries handled outside working hours?</legend>
+          <div class="q-card">
+          <p class="q-title">2. How are enquiries handled outside working hours?</p>
+<div class="options">
+            <label class="option"><input type="radio" name="out_of_hours" value="wait" data-points="4" required /> They wait until the next working day</label>
+            <label class="option"><input type="radio" name="out_of_hours" value="ad_hoc" data-points="3" /> Someone checks when they can</label>
+            <label class="option"><input type="radio" name="out_of_hours" value="basic" data-points="2" /> An answering service or a basic auto-reply</label>
+            <label class="option"><input type="radio" name="out_of_hours" value="prompt" data-points="1" /> They are handled promptly, including evenings and weekends</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">3. How do you keep track of leads and clients?</legend>
+          <div class="q-card">
+          <p class="q-title">3. How do you keep track of leads and clients?</p>
+<div class="options">
+            <label class="option"><input type="radio" name="crm" value="none" data-points="4" required /> We don't use a CRM</label>
+            <label class="option"><input type="radio" name="crm" value="spreadsheet" data-points="3" /> Spreadsheets or the inbox</label>
+            <label class="option"><input type="radio" name="crm" value="inconsistent" data-points="2" /> We have a CRM, but it isn't used consistently</label>
+            <label class="option"><input type="radio" name="crm" value="used" data-points="1" /> We have a CRM the team actually uses</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">4. How much data is still entered by hand?</legend>
+          <div class="q-card">
+          <p class="q-title">4. How much data is still entered by hand?</p>
+<span class="q-hint" id="hint-data">Invoices, job details, records and the like.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="data_entry" value="most" data-points="4" required aria-describedby="hint-data" /> Most of it is typed in by hand</label>
+            <label class="option"><input type="radio" name="data_entry" value="mix" data-points="2" /> A mix of manual and automatic</label>
+            <label class="option"><input type="radio" name="data_entry" value="auto" data-points="1" /> Most of it is already automatic</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">5. How do you raise invoices?</legend>
+          <div class="q-card">
+          <p class="q-title">5. How do you raise invoices?</p>
+<div class="options">
+            <label class="option"><input type="radio" name="invoicing" value="manual" data-points="4" required /> Written or typed by hand each time</label>
+            <label class="option"><input type="radio" name="invoicing" value="software" data-points="2" /> Accounting software, with a fair amount of manual work</label>
+            <label class="option"><input type="radio" name="invoicing" value="auto" data-points="1" /> Mostly automatic once the job is done</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">6. How do you collect customer reviews?</legend>
+          <div class="q-card">
+          <p class="q-title">6. How do you collect customer reviews?</p>
+<div class="options">
+            <label class="option"><input type="radio" name="reviews" value="rarely" data-points="4" required /> We don't ask, or only when we remember</label>
+            <label class="option"><input type="radio" name="reviews" value="occasional" data-points="2" /> The occasional email after a job</label>
+            <label class="option"><input type="radio" name="reviews" value="automatic" data-points="1" /> A regular, automatic request</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">7. How many people work in the business?</legend>
+          <div class="q-card">
+          <p class="q-title">7. How many people work in the business?</p>
+<span class="q-hint">Used to tailor the recommendations, not the score.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="staff" value="1-10" data-points="0" required /> 1–10</label>
+            <label class="option"><input type="radio" name="staff" value="11-50" data-points="0" /> 11–50</label>
+            <label class="option"><input type="radio" name="staff" value="51-200" data-points="0" /> 51–200</label>
+            <label class="option"><input type="radio" name="staff" value="200+" data-points="0" /> 200+</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="visually-hidden">8. Rough annual revenue</legend>
+          <div class="q-card">
+          <p class="q-title">8. Rough annual revenue</p>
+<span class="q-hint">A band is enough. Used to tailor the recommendations, not the score.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="revenue" value="under-1m" data-points="0" required /> Under £1m</label>
+            <label class="option"><input type="radio" name="revenue" value="1-5m" data-points="0" /> £1m–£5m</label>
+            <label class="option"><input type="radio" name="revenue" value="5-50m" data-points="0" /> £5m–£50m</label>
+            <label class="option"><input type="radio" name="revenue" value="50-250m" data-points="0" /> £50m–£250m</label>
+            <label class="option"><input type="radio" name="revenue" value="over-250m" data-points="0" /> Over £250m</label>
+          </div>
+                  </div>
+        </fieldset>
+
+        <p id="form-error" class="form-error" hidden role="alert">Please answer every question before seeing your score.</p>
+        <button class="btn btn-primary" type="submit">See my score</button>
+      </form>
+
+      <section id="results" hidden tabindex="-1" aria-labelledby="results-title">
+        <h2 id="results-title">Your result</h2>
+        <div class="score-out">
+          <p class="score-figure gradient" id="score-figure">0/24</p>
+          <p class="band" id="score-band"></p>
+        </div>
+        <p id="band-copy" style="color:var(--text-secondary);"></p>
+        <h3 style="margin-top:1.75rem;font-size:1.15rem;">Three places to start</h3>
+        <ol class="recs" id="recs"></ol>
+
+        <form class="capture" id="capture-form">
+          <h3>Send these results to Vector Moon</h3>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">We'll open an email to indi@vectormoon.co.uk with your answers and score already filled in. You review it before it goes.</p>
+          <!-- TODO: form backend (e.g. Formspree) needs Indi's approval before this can post instead of opening a mailto. -->
+          <div class="field">
+            <label for="cap-name">Your name</label>
+            <input id="cap-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="cap-email">Email</label>
+            <input id="cap-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="cap-company">Company <span style="color:var(--text-secondary);font-weight:400;">(optional)</span></label>
+            <input id="cap-company" name="company" type="text" autocomplete="organization" />
+          </div>
+          <button class="btn btn-primary" type="submit">Email my results</button>
+          <p id="capture-ok" class="capture-ok" hidden>Your email app should now be open with the results filled in. Send it when you're happy with it.</p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a class="footer-brand" href="https://www.vectormoon.co.uk/">Vector<span class="brand-moon">Moon</span></a>
+        <p style="margin-top:0.75rem;max-width:20rem;">Websites and AI automation for established UK businesses.</p>
+        <p style="margin-top:0.75rem;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,198,255,0.8);">Coventry · West Midlands · UK</p>
+      </div>
+      <div>
+        <p><a href="mailto:indi@vectormoon.co.uk">indi@vectormoon.co.uk</a></p>
+        <p><a href="tel:07341555160">07341 555160</a></p>
+        <p style="margin-top:0.75rem;"><a href="https://www.vectormoon.co.uk/">vectormoon.co.uk</a></p>
+      </div>
+    </div>
+    <p class="preview-note">This is a preview and is not linked from the live site yet. © 2026 Vector Moon.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const SCORED = ["admin_hours", "out_of_hours", "crm", "data_entry", "invoicing", "reviews"];
+      const LABELS = {
+        admin_hours: "Hours on repetitive admin",
+        out_of_hours: "Out-of-hours enquiries",
+        crm: "CRM use",
+        data_entry: "Manual data entry",
+        invoicing: "Invoicing",
+        reviews: "Review collection",
+        staff: "Staff count",
+        revenue: "Revenue band"
+      };
+      const RECIPES = [
+        { key: "out_of_hours", min: 3, title: "Out-of-hours enquiries", body: "An AI chat assistant or a proper auto-reply so leads get a useful response when your team is closed, with a clean hand-off the next morning." },
+        { key: "crm", min: 3, title: "Lead follow-up", body: "Log enquiries automatically and chase the ones that go quiet, instead of leaving them in the inbox." },
+        { key: "invoicing", min: 3, title: "Invoicing", body: "Cut the manual steps between “job done” and “invoice sent”, including reminders." },
+        { key: "data_entry", min: 3, title: "Data entry", body: "Move recurring records — jobs, invoices, contacts — out of re-typing and into a single flow." },
+        { key: "reviews", min: 3, title: "Reviews", body: "A simple automatic request after each completed job, so you are not relying on memory." },
+        { key: "admin_hours", min: 3, title: "Back-office admin", body: "Map the repetitive tasks eating the most hours, then automate the top two first." }
+      ];
+      const FALLBACKS = [
+        { title: "A focused audit", body: "A two-week, fixed-fee audit would rank the remaining work by hours and pounds saved, then give you a build plan." },
+        { title: "Start with one workflow", body: "Pick a single, visible process — usually enquiries or invoicing — and automate that before touching the rest." },
+        { title: "Keep what already works", body: "You already have some of this in place. An audit would find the gaps rather than replacing tools that the team uses." }
+      ];
+
+      const form = document.getElementById("score-form");
+      const errorEl = document.getElementById("form-error");
+      const results = document.getElementById("results");
+      const recsEl = document.getElementById("recs");
+      let lastResult = null;
+
+      function selected(name) {
+        return form.querySelector('input[name="' + name + '"]:checked');
+      }
+
+      function labelFor(input) {
+        return input ? input.parentElement.textContent.trim() : "";
+      }
+
+      function bandFor(score) {
+        if (score >= 18) {
+          return {
+            name: "High opportunity",
+            copy: "A lot of time is still going on manual work. Start with an audit of the top five automations, ranked by hours and pounds saved."
+          };
+        }
+        if (score >= 12) {
+          return {
+            name: "Ready to automate",
+            copy: "There are clear, specific gaps. A fixed-fee audit would rank the work by hours and cost saved, then give you a build plan."
+          };
+        }
+        return {
+          name: "Systems in place",
+          copy: "You already have some of this working. An audit would find the remaining high-value gaps rather than starting from scratch."
+        };
+      }
+
+      function recommendations(answers, score) {
+        const ranked = SCORED
+          .map(function (key) { return { key: key, points: answers[key].points }; })
+          .sort(function (a, b) { return b.points - a.points; });
+
+        const picks = [];
+        const used = {};
+        ranked.forEach(function (item) {
+          if (picks.length >= 3) return;
+          const recipe = RECIPES.find(function (r) { return r.key === item.key && item.points >= r.min; });
+          if (recipe) {
+            picks.push(recipe);
+            used[recipe.title] = true;
+          }
+        });
+        FALLBACKS.forEach(function (fb) {
+          if (picks.length >= 3 || used[fb.title]) return;
+          picks.push(fb);
+          used[fb.title] = true;
+        });
+
+        const staff = answers.staff.value;
+        const revenue = answers.revenue.value;
+        const larger = staff === "51-200" || staff === "200+" || revenue === "5-50m" || revenue === "50-250m" || revenue === "over-250m";
+        const smaller = staff === "1-10" || revenue === "under-1m";
+        if (larger && picks[0]) {
+          picks[0] = {
+            title: picks[0].title,
+            body: picks[0].body + " For a business of this size, the audit is the right first step: it ranks the work across teams, not just the website."
+          };
+        } else if (smaller && picks[0]) {
+          picks[0] = {
+            title: picks[0].title,
+            body: picks[0].body + " For a smaller team, it is usually worth starting with one visible win — often enquiries or review requests — before a wider build."
+          };
+        }
+        return picks.slice(0, 3);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const answers = {};
+        let complete = true;
+        ["admin_hours", "out_of_hours", "crm", "data_entry", "invoicing", "reviews", "staff", "revenue"].forEach(function (name) {
+          const input = selected(name);
+          if (!input) complete = false;
+          else answers[name] = { value: input.value, points: Number(input.dataset.points || 0), label: labelFor(input) };
+        });
+        if (!complete) {
+          errorEl.hidden = false;
+          errorEl.focus && errorEl.scrollIntoView({ block: "center" });
+          return;
+        }
+        errorEl.hidden = true;
+
+        const score = SCORED.reduce(function (sum, key) { return sum + answers[key].points; }, 0);
+        const band = bandFor(score);
+        const recs = recommendations(answers, score);
+        lastResult = { score: score, max: 24, band: band, answers: answers, recs: recs };
+
+        document.getElementById("score-figure").textContent = score + "/24";
+        document.getElementById("score-band").textContent = band.name;
+        document.getElementById("band-copy").textContent = band.copy;
+        recsEl.innerHTML = recs.map(function (r) {
+          return "<li><strong>" + r.title + "</strong>" + r.body + "</li>";
+        }).join("");
+
+        results.hidden = false;
+        results.focus();
+        results.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      document.getElementById("capture-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!lastResult) return;
+        const name = document.getElementById("cap-name").value.trim();
+        const email = document.getElementById("cap-email").value.trim();
+        const company = document.getElementById("cap-company").value.trim();
+        if (!name || !email) return;
+
+        const lines = [];
+        lines.push("AI readiness scorecard results");
+        lines.push("");
+        lines.push("Name: " + name);
+        lines.push("Email: " + email);
+        lines.push("Company: " + (company || "(not given)"));
+        lines.push("");
+        lines.push("Score: " + lastResult.score + "/" + lastResult.max + " — " + lastResult.band.name);
+        lines.push(lastResult.band.copy);
+        lines.push("");
+        lines.push("Answers:");
+        Object.keys(LABELS).forEach(function (key) {
+          lines.push("- " + LABELS[key] + ": " + lastResult.answers[key].label);
+        });
+        lines.push("");
+        lines.push("Recommendations:");
+        lastResult.recs.forEach(function (r, i) {
+          lines.push((i + 1) + ". " + r.title + " — " + r.body);
+        });
+
+        const subject = "AI scorecard — " + lastResult.score + "/24" + (company ? " — " + company : " — " + name);
+        const href = "mailto:indi@vectormoon.co.uk?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        const ok = document.getElementById("capture-ok");
+        ok.hidden = false;
+        e.currentTarget.dataset.mailto = href;
+        window.location.href = href;
+      });
+    })();
+  </script>
+</body>
+</html>
