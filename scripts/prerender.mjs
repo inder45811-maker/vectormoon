@@ -19,6 +19,8 @@ const routes = [
   '/work',
   ...projects.map((p) => `/work/${p.slug}`),
   '/services',
+  '/ai',
+  '/ai/scorecard',
   ...locations.map((l) => `/web-design-${l.slug}`),
   '/pricing',
   '/contact',

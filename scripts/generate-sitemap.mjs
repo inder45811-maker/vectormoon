@@ -18,6 +18,8 @@ const staticRoutes = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/work/', changefreq: 'weekly', priority: '0.9' },
   { path: '/services/', changefreq: 'monthly', priority: '0.85' },
+  { path: '/ai/', changefreq: 'monthly', priority: '0.85' },
+  { path: '/ai/scorecard/', changefreq: 'monthly', priority: '0.8' },
   { path: '/pricing/', changefreq: 'monthly', priority: '0.9' },
   { path: '/contact/', changefreq: 'monthly', priority: '0.85' },
   { path: '/privacy-policy/', changefreq: 'yearly', priority: '0.3' },

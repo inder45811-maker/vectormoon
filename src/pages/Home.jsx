@@ -216,6 +216,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI AUTOMATION — short band only; do not rewrite the rest of the homepage */}
+      <section
+        className="relative border-t border-white/5 px-6 py-16 md:py-20"
+        style={{ background: '#070B16' }}
+      >
+        <div className="mx-auto max-w-[1280px]">
+          <div className="rounded-2xl border border-cyan/20 bg-cyan/5 p-8 md:flex md:items-center md:justify-between md:gap-10 md:p-10">
+            <div className="max-w-xl">
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-cyan">AI automation</p>
+              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+                Cut the repetitive work. <span className="gradient-text">Start with a 90-second scorecard.</span>
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                Chat, enquiry follow-up, booking, reviews and back-office admin. A fixed-fee audit from £1,500 ranks the work worth doing.
+              </p>
+            </div>
+            <div className="mt-6 flex shrink-0 flex-col gap-3 sm:flex-row md:mt-0 md:flex-col lg:flex-row">
+              <Link
+                to="/ai/scorecard/"
+                className="rounded-full bg-cyan px-6 py-3 text-center text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
+              >
+                Take the free scorecard
+              </Link>
+              <Link
+                to="/ai/"
+                className="rounded-full border border-electric/50 px-6 py-3 text-center text-sm font-medium text-white transition hover:bg-electric/10"
+              >
+                See AI services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4-STAGE AEROSPACE SPRINT FLIGHT PLAN */}
       <section className="section-pad relative border-t border-white/5" style={{ background: '#070B16' }}>
         <ProcessFlightPlan />
