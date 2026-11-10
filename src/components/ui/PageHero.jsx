@@ -80,22 +80,36 @@ export default function PageHero({
             animate="show"
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
-            {primaryCta && (
+            {primaryCta && (primaryCta.href ? (
+              <a
+                href={primaryCta.href}
+                className="rounded-full bg-cyan px-8 py-3.5 text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
+              >
+                {primaryCta.label}
+              </a>
+            ) : (
               <Link
                 to={primaryCta.to}
                 className="rounded-full bg-cyan px-8 py-3.5 text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
               >
                 {primaryCta.label}
               </Link>
-            )}
-            {secondaryCta && (
+            ))}
+            {secondaryCta && (secondaryCta.href ? (
+              <a
+                href={secondaryCta.href}
+                className="rounded-full border border-electric/60 px-8 py-3.5 text-sm font-medium text-white transition hover:bg-electric/10"
+              >
+                {secondaryCta.label}
+              </a>
+            ) : (
               <Link
                 to={secondaryCta.to}
                 className="rounded-full border border-electric/60 px-8 py-3.5 text-sm font-medium text-white transition hover:bg-electric/10"
               >
                 {secondaryCta.label}
               </Link>
-            )}
+            ))}
           </motion.div>
         )}
       </div>

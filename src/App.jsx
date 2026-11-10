@@ -12,6 +12,8 @@ import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
+import Ai from './pages/Ai'
+import AiScorecard from './pages/AiScorecard'
 import { initGA, installContactClickTracking } from './utils/analytics'
 import { applyStoredConsent, CONSENT_EVENT } from './utils/consent'
 import { usePageTracking } from './hooks/usePageTracking'
@@ -57,6 +59,8 @@ export default function App() {
         <Route path="work" element={<Work />} />
         <Route path="work/:slug" element={<WorkDetail />} />
         <Route path="services" element={<Services />} />
+        <Route path="ai" element={<Ai />} />
+        <Route path="ai/scorecard" element={<AiScorecard />} />
         {locations.map((l) => (
           <Route key={l.slug} path={`web-design-${l.slug}`} element={<LocationPage slug={l.slug} />} />
         ))}

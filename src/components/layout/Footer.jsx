@@ -4,6 +4,8 @@ import { openConsentSettings } from '../../utils/consent'
 const nav = [
   { to: '/work/', label: 'Work' },
   { to: '/services/', label: 'Services' },
+  { to: '/ai/', label: 'AI automation' },
+  { to: '/ai/scorecard/', label: 'AI scorecard' },
   { to: '/web-design-coventry/', label: 'Web Design Coventry' },
   { to: '/web-design-birmingham/', label: 'Web Design Birmingham' },
   { to: '/web-design-stratford-upon-avon/', label: 'Web Design Stratford-upon-Avon' },

@@ -7,6 +7,7 @@ import AudioToggle from '../ui/AudioToggle'
 const links = [
   { to: '/work/', label: 'Work' },
   { to: '/services/', label: 'Services' },
+  { to: '/ai/', label: 'AI' },
   { to: '/web-design-coventry/', label: 'Coventry' },
   { to: '/pricing/', label: 'Pricing' },
   { to: '/contact/', label: 'Contact' },
