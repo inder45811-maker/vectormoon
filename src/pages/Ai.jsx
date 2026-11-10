@@ -3,7 +3,7 @@ import Seo from '../components/Seo'
 import PageHero from '../components/ui/PageHero'
 import { pageSeo, businessJsonLd } from '../data/seo'
 
-const AUDIT_MAILTO = 'mailto:indi@vectormoon.co.uk?subject=AI%20audit'
+const BOOKING_URL = 'https://cal.com/vectormoon/chat'
 
 const offers = [
   {
@@ -88,7 +88,7 @@ export default function Ai() {
         title="AI automation"
         highlight="for businesses."
         subtitle="We find the repetitive work in your business and automate it. It starts with a fixed-fee audit, then the builds that save the most time and money."
-        primaryCta={{ href: AUDIT_MAILTO, label: 'Book an AI audit', external: true }}
+        primaryCta={{ href: BOOKING_URL, label: 'Book an AI audit', external: true }}
         secondaryCta={{ to: '/ai/scorecard/', label: 'Take the 90-second scorecard' }}
         compact
       />
@@ -143,9 +143,10 @@ export default function Ai() {
               ))}
             </ul>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {/* TODO: replace this mailto with a Cal.com booking link once Indi has approved an account. */}
               <a
-                href={AUDIT_MAILTO}
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener"
                 className="rounded-full bg-cyan px-8 py-3.5 text-center text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
               >
                 Book an AI audit

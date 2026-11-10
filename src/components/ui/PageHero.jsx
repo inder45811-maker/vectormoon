@@ -83,6 +83,7 @@ export default function PageHero({
             {primaryCta && (primaryCta.href ? (
               <a
                 href={primaryCta.href}
+                {...(primaryCta.external ? { target: '_blank', rel: 'noopener' } : {})}
                 className="rounded-full bg-cyan px-8 py-3.5 text-sm font-semibold text-void shadow-[var(--shadow-glow-cyan)] transition hover:brightness-110"
               >
                 {primaryCta.label}
@@ -98,6 +99,7 @@ export default function PageHero({
             {secondaryCta && (secondaryCta.href ? (
               <a
                 href={secondaryCta.href}
+                {...(secondaryCta.external ? { target: '_blank', rel: 'noopener' } : {})}
                 className="rounded-full border border-electric/60 px-8 py-3.5 text-sm font-medium text-white transition hover:bg-electric/10"
               >
                 {secondaryCta.label}

@@ -3,7 +3,7 @@ import Seo from '../components/Seo'
 import PageHero from '../components/ui/PageHero'
 import { pageSeo } from '../data/seo'
 
-const AUDIT_MAILTO = 'mailto:indi@vectormoon.co.uk?subject=AI%20audit'
+const BOOKING_URL = 'https://cal.com/vectormoon/chat'
 
 const SCORED = ['admin_hours', 'out_of_hours', 'crm', 'data_entry', 'invoicing', 'reviews']
 
@@ -265,7 +265,7 @@ export default function AiScorecard() {
         title="How ready is your business"
         highlight="for AI?"
         subtitle="Eight short questions. You get a score, three tailored recommendations, and the option to send the results to us. Nothing is stored on this page."
-        secondaryCta={{ href: AUDIT_MAILTO, label: 'Book an AI audit' }}
+        secondaryCta={{ href: BOOKING_URL, label: 'Book an AI audit', external: true }}
         compact
       />
 
